@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Find infertility and fertility specialists by city with FertiBridge. Explore fertility care options across Chandigarh, Punjab and Himachal Pradesh.">
+
+  <title>Find Fertility Specialists by City | FertiBridge</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fffaf6;
+      color: #183638;
+      line-height: 1.6;
+    }
+
+    header {
+      background: white;
+      border-bottom: 1px solid #e5ecea;
+      padding: 18px 5%;
+    }
+
+    .nav {
+      max-width: 1150px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: #087b78;
+      font-size: 27px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .back {
+      color: #087b78;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 5% 55px;
+      background:
+        linear-gradient(rgba(255,250,246,0.92), rgba(255,250,246,0.95)),
+        url("https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=1600&q=85")
+        center/cover no-repeat;
+    }
+
+    .eyebrow {
+      color: #087b78;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      color: #637477;
+      font-size: 18px;
+    }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 65px 5%;
+    }
+
+    .region {
+      margin-bottom: 55px;
+    }
+
+    .region-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      margin-bottom: 22px;
+    }
+
+    .region-title span {
+      color: #087b78;
+    }
+
+    .city-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .city-card {
+      background: white;
+      border: 1px solid #e3ebe9;
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(10,70,70,0.05);
+      transition: 0.2s;
+    }
+
+    .city-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(10,70,70,0.10);
+    }
+
+    .city-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #e9f6f4;
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .city-card h3 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .city-card p {
+      color: #68777a;
+      font-size: 14px;
+      min-height: 45px;
+    }
+
+    .city-button {
+      display: inline-block;
+      margin-top: 15px;
+      background: #087b78;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .city-button:hover {
+      background: #064f50;
+    }
+
+    .nearby {
+      margin-top: 15px;
+      padding: 35px;
+      border-radius: 18px;
+      background: #064f50;
+      color: white;
+      text-align: center;
+    }
+
+    .nearby h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .nearby p {
+      max-width: 650px;
+      margin: 0 auto 20px;
+      opacity: 0.88;
+    }
+
+    .nearby-button {
+      display: inline-block;
+      background: white;
+      color: #064f50;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #063f40;
+      color: white;
+      text-align: center;
+      padding: 30px 5%;
+      font-size: 13px;
+      opacity: 0.95;
+    }
+
+    @media (max-width: 900px) {
+      .city-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .back {
+        font-size: 14px;
+      }
+
+      .hero {
+        padding: 55px 5% 45px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      main {
+        padding: 45px 5%;
+      }
+
+      .city-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .region-title {
+        font-size: 28px;
+      }
+
+      .nearby {
+        padding: 30px 20px;
+      }
+
+      .nearby h2 {
+        font-size: 29px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="nav">
+
+    <a href="index.html" class="logo">
+      ♡ FertiBridge
+    </a>
+
+    <a href="index.html" class="back">
+      ← Back to Home
+    </a>
+
+  </nav>
+</header>
+
+
+<section class="hero">
+
+  <div class="eyebrow">
+    Find Care Near You
+  </div>
+
+  <h1>
+    Find Fertility Specialists by City
+  </h1>
+
+  <p>
+    Explore infertility and fertility specialists by location and
+    discover care options closer to you.
+  </p>
+
+</section>
+
+
+<main>
+
+  <!-- CHANDIGARH & TRICITY -->
+
+  <section class="region">
+
+    <h2 class="region-title">
+      Chandigarh <span>& Tricity</span>
+    </h2>
+
+    <div class="city-grid">
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Chandigarh</h3>
+        <p>
+          Find infertility and fertility specialists in Chandigarh.
+        </p>
+        <a href="chandigarh.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Mohali</h3>
+        <p>
+          Explore fertility specialists and care options in Mohali.
+        </p>
+        <a href="mohali.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Panchkula</h3>
+        <p>
+          Find fertility specialists near Panchkula and Tricity.
+        </p>
+        <a href="panchkula.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PUNJAB -->
+
+  <section class="region">
+
+    <h2 class="region-title">
+      <span>Punjab</span>
+    </h2>
+
+    <div class="city-grid">
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Ludhiana</h3>
+        <p>
+          Explore infertility and fertility specialists in Ludhiana.
+        </p>
+        <a href="ludhiana.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Jalandhar</h3>
+        <p>
+          Find fertility specialists and care options in Jalandhar.
+        </p>
+        <a href="jalandhar.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Amritsar</h3>
+        <p>
+          Discover fertility specialists in Amritsar.
+        </p>
+        <a href="amritsar.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Patiala</h3>
+        <p>
+          Find infertility and fertility specialists in Patiala.
+        </p>
+        <a href="patiala.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">📍</div>
+        <h3>Bathinda</h3>
+        <p>
+          Explore fertility care options in Bathinda.
+        </p>
+        <a href="bathinda.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- HIMACHAL PRADESH -->
+
+  <section class="region">
+
+    <h2 class="region-title">
+      <span>Himachal Pradesh</span>
+    </h2>
+
+    <div class="city-grid">
+
+      <div class="city-card">
+        <div class="city-icon">🏔️</div>
+        <h3>Una</h3>
+        <p>
+          Find fertility specialists and care options in Una.
+        </p>
+        <a href="una.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">🏔️</div>
+        <h3>Shimla</h3>
+        <p>
+          Explore infertility specialists in Shimla.
+        </p>
+        <a href="shimla.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">🏔️</div>
+        <h3>Solan</h3>
+        <p>
+          Discover fertility care options in Solan.
+        </p>
+        <a href="solan.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">🏔️</div>
+        <h3>Kangra</h3>
+        <p>
+          Find fertility specialists in Kangra.
+        </p>
+        <a href="kangra.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+      <div class="city-card">
+        <div class="city-icon">🏔️</div>
+        <h3>Dharamshala</h3>
+        <p>
+          Explore fertility specialists near Dharamshala.
+        </p>
+        <a href="dharamshala.html" class="city-button">
+          Explore Specialists →
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LOCATION SEARCH -->
+
+  <section class="nearby">
+
+    <h2>
+      Can't find your city?
+    </h2>
+
+    <p>
+      Use our specialist directory to search by city or use your
+      location to discover specialists near you.
+    </p>
+
+    <a href="Specialist.html" class="nearby-button">
+      Search Specialists Near Me →
+    </a>
+
+  </section>
+
+</main>
+
+
+<footer>
+  © 2026 FertiBridge. Connecting Patients with Infertility Specialists.
+</footer>
+
+</body>
+</html>
