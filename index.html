@@ -4,989 +4,530 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="FertiBridge connects patients with trusted infertility and fertility specialists near them. Discover specialists and take the next step towards fertility care.">
+  <title>FertiBridge | Fertility & IVF Specialists in Chandigarh, Panchkula & Rupnagar</title>
+  <meta name="description" content="Find trusted fertility and IVF specialists in Chandigarh, Panchkula, Rupnagar and New Chandigarh through FertiBridge. Explore doctor profiles and request an appointment.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f766e">
 
-  <title>FertiBridge | Connecting Patients with Trusted Infertility Specialists</title>
+  <!-- Replace this with your live FertiBridge URL -->
+  <link rel="canonical" href="https://fertibridge.in/">
+
+  <meta property="og:title" content="FertiBridge | Fertility & IVF Specialists">
+  <meta property="og:description" content="Discover fertility and IVF specialists and request an appointment through FertiBridge.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fertibridge.in/">
 
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root{
+      --primary:#0f766e;
+      --primary-dark:#115e59;
+      --accent:#ccfbf1;
+      --text:#16302b;
+      --muted:#64748b;
+      --bg:#f6fbfa;
+      --card:#ffffff;
+      --border:#dcebe8;
+      --shadow:0 12px 35px rgba(15,118,110,.10);
     }
 
-    :root {
-      --teal: #087b78;
-      --dark-teal: #064f50;
-      --light-teal: #e9f6f4;
-      --cream: #fffaf5;
-      --peach: #f5b49f;
-      --text: #183638;
-      --muted: #637477;
-      --white: #ffffff;
-      --border: #e4ecea;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--cream);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav {
-      max-width: 1200px;
-      margin: auto;
-      padding: 18px 5%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 27px;
-      font-weight: 800;
-      color: var(--teal);
-      white-space: nowrap;
-    }
-
-    .logo-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      background: var(--light-teal);
-      display: grid;
-      place-items: center;
-      font-size: 21px;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      font-size: 15px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      transition: 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--teal);
-    }
-
-    .nav-cta {
-      padding: 11px 18px;
-      border-radius: 8px;
-      background: var(--teal);
-      color: white !important;
-    }
-
-    .menu-button {
-      display: none;
-      border: none;
-      background: transparent;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 650px;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(255,250,245,0.98) 0%, rgba(255,250,245,0.93) 42%, rgba(255,250,245,0.25) 72%),
-        url("https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1800&q=85")
-        center/cover no-repeat;
-    }
-
-    .hero-inner {
-      max-width: 1200px;
-      min-height: 650px;
-      margin: auto;
-      padding: 80px 5%;
-      display: flex;
-      align-items: center;
-    }
-
-    .hero-content {
-      max-width: 650px;
-    }
-
-    .eyebrow {
-      color: var(--teal);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 15px;
-    }
-
-    .hero h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 5vw, 68px);
-      line-height: 1.08;
-      margin-bottom: 24px;
-    }
-
-    .hero h1 span {
-      color: var(--teal);
-    }
-
-    .hero-text {
-      max-width: 590px;
-      font-size: 19px;
-      color: #425356;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 22px;
-      border-radius: 9px;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .button-primary {
-      background: var(--teal);
-      color: white;
-    }
-
-    .button-primary:hover {
-      background: var(--dark-teal);
-      transform: translateY(-1px);
-    }
-
-    .button-outline {
-      border: 1.5px solid var(--teal);
-      color: var(--teal);
-      background: white;
-    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
 
-    /* FEATURES */
-
-    .features {
-      background: var(--dark-teal);
-      color: white;
-    }
-
-    .features-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 32px 5%;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 25px;
-    }
-
-    .feature {
-      display: flex;
-      gap: 14px;
-      align-items: flex-start;
-      padding-right: 20px;
-      border-right: 1px solid rgba(255,255,255,0.25);
-    }
-
-    .feature:last-child {
-      border-right: none;
-    }
-
-    .feature-icon {
-      min-width: 45px;
-      height: 45px;
-      border: 1px solid rgba(255,255,255,0.5);
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 21px;
-    }
-
-    .feature h3 {
-      font-size: 16px;
-      margin-bottom: 4px;
-    }
-
-    .feature p {
-      font-size: 13px;
-      opacity: 0.85;
+    header{
+      background:linear-gradient(135deg,#ecfdf5,#f0fdfa);
+      border-bottom:1px solid var(--border);
     }
 
-    /* SECTIONS */
-
-    .section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 90px 5%;
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+      gap:20px;
     }
 
-    .section-heading {
-      text-align: center;
-      max-width: 750px;
-      margin: 0 auto 50px;
+    .logo{
+      font-size:1.45rem;
+      font-weight:800;
+      color:var(--primary-dark);
     }
 
-    .section-heading .eyebrow {
-      margin-bottom: 10px;
+    .nav-links{
+      display:flex;
+      gap:20px;
+      color:#31544e;
+      font-weight:600;
+      font-size:.95rem;
     }
 
-    .section-heading h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(32px, 4vw, 45px);
-      line-height: 1.2;
-      margin-bottom: 15px;
+    .hero{
+      padding:72px 0 78px;
+      text-align:center;
     }
 
-    .section-heading p {
-      color: var(--muted);
-      font-size: 17px;
+    .eyebrow{
+      display:inline-block;
+      background:var(--accent);
+      color:var(--primary-dark);
+      padding:7px 13px;
+      border-radius:999px;
+      font-weight:700;
+      font-size:.85rem;
+      margin-bottom:15px;
     }
-
-    /* SERVICES */
 
-    .services {
-      background: #fffdfb;
+    h1{
+      font-size:clamp(2rem,5vw,3.6rem);
+      line-height:1.12;
+      margin:0 auto 18px;
+      max-width:850px;
     }
 
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+    .hero p{
+      max-width:760px;
+      margin:0 auto 28px;
+      color:#526b66;
+      font-size:1.08rem;
     }
 
-    .service-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px;
-      box-shadow: 0 8px 30px rgba(15, 60, 60, 0.05);
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 18px;
+      border-radius:10px;
+      font-weight:750;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.2s ease;
     }
 
-    .service-icon {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      background: var(--light-teal);
-      display: grid;
-      place-items: center;
-      font-size: 25px;
-      margin-bottom: 20px;
+    .btn-primary{
+      background:var(--primary);
+      color:#fff;
     }
 
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size: 19px;
-    }
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
 
-    .service-card p {
-      color: var(--muted);
-      font-size: 14px;
+    .btn-secondary{
+      background:#fff;
+      border-color:var(--border);
+      color:var(--primary-dark);
     }
 
-    /* ABOUT */
+    .btn-secondary:hover{border-color:var(--primary)}
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 70px;
-      align-items: center;
-    }
+    section{padding:60px 0}
 
-    .about-image {
-      min-height: 430px;
-      border-radius: 20px;
-      background:
-        linear-gradient(rgba(8,123,120,0.05), rgba(8,123,120,0.05)),
-        url("https://images.unsplash.com/photo-1491013516836-7db643ee125a?auto=format&fit=crop&w=1200&q=85")
-        center/cover no-repeat;
+    .section-title{
+      text-align:center;
+      margin-bottom:34px;
     }
 
-    .about-content h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 43px;
-      line-height: 1.15;
-      margin-bottom: 20px;
+    .section-title h2{
+      margin:0 0 8px;
+      font-size:2rem;
     }
 
-    .about-content p {
-      color: var(--muted);
-      font-size: 17px;
-      margin-bottom: 18px;
+    .section-title p{
+      margin:0;
+      color:var(--muted);
     }
 
-    .about-list {
-      list-style: none;
-      margin: 25px 0;
+    .doctor-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
     }
 
-    .about-list li {
-      margin: 12px 0;
-      font-weight: 600;
+    .doctor-card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
     }
-
-    /* SPECIALIST CTA */
 
-    .specialist-cta {
-      max-width: 1100px;
-      margin: 0 auto;
-      border-radius: 20px;
-      padding: 55px;
-      background: var(--dark-teal);
-      color: white;
-      text-align: center;
+    .doctor-photo{
+      width:100%;
+      aspect-ratio:4/3;
+      object-fit:cover;
+      background:#dff4ef;
+      display:block;
     }
 
-    .specialist-cta h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 42px;
-      margin-bottom: 15px;
+    .doctor-content{
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      height:100%;
     }
 
-    .specialist-cta p {
-      max-width: 680px;
-      margin: 0 auto 25px;
-      opacity: 0.88;
+    .doctor-content h3{
+      margin:0 0 4px;
+      font-size:1.35rem;
     }
 
-    /* CONTACT */
-
-    .contact {
-      background: #fffdfb;
+    .role{
+      color:var(--primary);
+      font-weight:750;
+      margin-bottom:12px;
     }
 
-    .contact-box {
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
+    .meta{
+      color:var(--muted);
+      font-size:.94rem;
+      margin:5px 0;
     }
 
-    .contact-box p {
-      color: var(--muted);
-      margin-bottom: 25px;
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:7px;
+      margin:14px 0;
     }
 
-    /* FOOTER */
-
-    footer {
-      background: #063f40;
-      color: white;
-      padding: 45px 5%;
+    .tag{
+      background:#effaf7;
+      color:#25635c;
+      border:1px solid #d8efea;
+      padding:5px 9px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:650;
     }
 
-    .footer-inner {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      flex-wrap: wrap;
+    .links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:12px 0 18px;
     }
 
-    .footer-brand {
-      max-width: 400px;
+    .link-pill{
+      border:1px solid var(--border);
+      padding:7px 10px;
+      border-radius:8px;
+      color:var(--primary-dark);
+      font-size:.82rem;
+      font-weight:700;
+      background:#fff;
     }
 
-    .footer-brand h2 {
-      margin-bottom: 10px;
+    .card-actions{
+      margin-top:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:9px;
     }
 
-    .footer-brand p {
-      opacity: 0.78;
-      font-size: 14px;
+    .appointment{
+      background:#fff;
+      border-top:1px solid var(--border);
     }
 
-    .footer-links {
-      display: flex;
-      gap: 25px;
-      flex-wrap: wrap;
-      align-items: center;
+    .form-box{
+      max-width:720px;
+      margin:auto;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:30px;
+      box-shadow:var(--shadow);
+      text-align:center;
     }
 
-    .footer-links a {
-      opacity: 0.85;
-      font-size: 14px;
+    .notice{
+      background:#fff8e8;
+      border:1px solid #f5dfaa;
+      color:#725a20;
+      padding:12px 14px;
+      border-radius:10px;
+      font-size:.9rem;
+      margin:18px 0;
     }
 
-    .copyright {
-      max-width: 1200px;
-      margin: 30px auto 0;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.18);
-      opacity: 0.65;
-      font-size: 13px;
+    footer{
+      padding:35px 0;
+      background:#123b35;
+      color:#d9efea;
+      text-align:center;
     }
-
-    /* MOBILE */
-
-    @media (max-width: 950px) {
-      .nav-links {
-        gap: 16px;
-      }
-
-      .features-inner {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .feature:nth-child(2) {
-        border-right: none;
-      }
 
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    footer p{margin:5px 0;font-size:.9rem}
 
-      .about-grid {
-        gap: 40px;
-      }
+    @media (max-width:900px){
+      .doctor-grid{grid-template-columns:1fr 1fr}
     }
-
-    @media (max-width: 700px) {
-
-      .nav {
-        padding: 15px 5%;
-      }
-
-      .logo {
-        font-size: 23px;
-      }
-
-      .logo-icon {
-        width: 34px;
-        height: 34px;
-      }
-
-      .menu-button {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 5%;
-        right: 5%;
-        padding: 20px;
-        background: white;
-        border: 1px solid var(--border);
-        border-radius: 12px;
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 5px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links a {
-        padding: 12px;
-      }
-
-      .nav-cta {
-        text-align: center;
-      }
-
-      .hero {
-        min-height: 680px;
-        background:
-          linear-gradient(180deg, rgba(255,250,245,0.98) 0%, rgba(255,250,245,0.90) 45%, rgba(255,250,245,0.25) 100%),
-          url("https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1000&q=85")
-          center/cover no-repeat;
-      }
-
-      .hero-inner {
-        min-height: 680px;
-        padding: 60px 5% 40px;
-        align-items: flex-start;
-      }
-
-      .hero-content {
-        text-align: center;
-        margin: auto;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero-text {
-        font-size: 17px;
-      }
-
-      .hero-buttons {
-        justify-content: center;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .features-inner {
-        grid-template-columns: 1fr;
-        padding: 25px 7%;
-      }
-
-      .feature {
-        border-right: none;
-        border-bottom: 1px solid rgba(255,255,255,0.2);
-        padding: 10px 0 18px;
-      }
-
-      .feature:last-child {
-        border-bottom: none;
-      }
-
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-image {
-        min-height: 320px;
-      }
-
-      .about-content h2 {
-        font-size: 35px;
-      }
-
-      .specialist-cta {
-        padding: 40px 22px;
-      }
-
-      .specialist-cta h2 {
-        font-size: 34px;
-      }
 
-      .section {
-        padding: 65px 5%;
-      }
+    @media (max-width:650px){
+      .nav-links{display:none}
+      .hero{padding:52px 0}
+      .doctor-grid{grid-template-columns:1fr}
+      .card-actions{grid-template-columns:1fr}
     }
   </style>
+
+  <!-- Basic Organization/MedicalDirectory structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"FertiBridge",
+    "url":"https://fertibridge.in/",
+    "description":"Fertility and IVF specialist directory"
+  }
+  </script>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-
-  <header>
-    <nav class="nav">
-
-      <a href="index.html" class="logo">
-        <span class="logo-icon">♡</span>
-        FertiBridge
-      </a>
-
-      <button class="menu-button" onclick="toggleMenu()" aria-label="Open menu">
-        ☰
-      </button>
-
-      <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="Specialist.html">Specialists</a>
-        <a href="#patient-guide">Patient Guide</a>
-        <a href="#contact">Contact Us</a>
-
-        <a href="Specialist.html" class="nav-cta">
-          Find a Specialist
-        </a>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="/">FertiBridge</a>
+      <div class="nav-links">
+        <a href="#specialists">Specialists</a>
+        <a href="#appointment">Book Appointment</a>
+        <a href="#about">About</a>
       </div>
-
     </nav>
-  </header>
 
-
-  <!-- HERO -->
-
-  <section class="hero" id="home">
-
-    <div class="hero-inner">
-
-      <div class="hero-content">
-
-        <div class="eyebrow">
-          Trusted Fertility Care
-        </div>
-
-        <h1>
-          Bridging Dreams.<br>
-          <span>Building Families.</span>
-        </h1>
-
-        <p class="hero-text">
-          FertiBridge connects you with trusted infertility specialists
-          near you. Because every dream of parenthood deserves the right care.
-        </p>
-
-        <div class="hero-buttons">
-
-          <a href="Specialist.html" class="button button-primary">
-            📍 Find a Specialist Near You
-          </a>
-
-          <a href="#services" class="button button-outline">
-            Explore Services →
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FEATURES -->
-
-  <section class="features">
-
-    <div class="features-inner">
-
-      <div class="feature">
-        <div class="feature-icon">👨‍⚕️</div>
-        <div>
-          <h3>Trusted Specialists</h3>
-          <p>Discover fertility experts near you.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">📍</div>
-        <div>
-          <h3>Find Near You</h3>
-          <p>Search by city or use your location.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">✓</div>
-        <div>
-          <h3>Reliable Care</h3>
-          <p>Connect with experienced specialists.</p>
-        </div>
-      </div>
-
-      <div class="feature">
-        <div class="feature-icon">♡</div>
-        <div>
-          <h3>Here for You</h3>
-          <p>Guidance throughout your fertility journey.</p>
-        </div>
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SERVICES -->
-
-  <section class="services" id="services">
-
-    <div class="section">
-
-      <div class="section-heading">
-
-        <div class="eyebrow">
-          Our Services
-        </div>
-
-        <h2>
-          Comprehensive Care, Personalised for You.
-        </h2>
-
-        <p>
-          FertiBridge is designed to make the journey to fertility care
-          simpler, clearer and more connected.
-        </p>
-
-      </div>
-
-      <div class="service-grid">
-
-        <div class="service-card">
-          <div class="service-icon">👩‍⚕️</div>
-          <h3>Fertility Consultation</h3>
-          <p>
-            Discover specialists who can help evaluate your fertility
-            needs and guide you towards appropriate care.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">♡</div>
-          <h3>Advanced Treatments</h3>
-          <p>
-            Find specialists experienced in fertility treatments
-            including IUI, IVF, ICSI and related services.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">💬</div>
-          <h3>Support & Guidance</h3>
-          <p>
-            Make the fertility journey easier by finding relevant
-            professional guidance closer to you.
-          </p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">📖</div>
-          <h3>Patient Resources</h3>
-          <p>
-            Access useful information designed to help patients
-            understand their fertility-care journey.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-
-  <section class="section" id="about">
-
-    <div class="about-grid">
-
-      <div class="about-image"></div>
-
-      <div class="about-content">
-
-        <div class="eyebrow">
-          About FertiBridge
-        </div>
-
-        <h2>
-          Making the journey to fertility care simpler.
-        </h2>
-
-        <p>
-          Finding the right fertility specialist can feel overwhelming.
-          FertiBridge is designed to bring patients and infertility
-          specialists closer together through a simple and accessible platform.
-        </p>
-
-        <p>
-          Our goal is to help patients discover relevant specialists,
-          explore professional profiles and take the next step towards
-          fertility care with greater confidence.
-        </p>
-
-        <ul class="about-list">
-          <li>✓ Discover specialists by location</li>
-          <li>✓ Explore professional profiles</li>
-          <li>✓ Find care closer to you</li>
-          <li>✓ Make your next step simpler</li>
-        </ul>
-
-        <a href="Specialist.html" class="button button-primary">
-          Explore Specialists →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- PATIENT GUIDE -->
-
-  <section class="services" id="patient-guide">
-
-    <div class="section">
-
-      <div class="section-heading">
-
-        <div class="eyebrow">
-          Patient Guide
-        </div>
-
-        <h2>
-          Your journey starts with finding the right specialist.
-        </h2>
-
-        <p>
-          Search your city, explore available specialists and learn more
-          about the professionals who may be relevant to your fertility-care needs.
-        </p>
-
-      </div>
-
-      <div style="text-align:center;">
-
-        <a href="Specialist.html" class="button button-primary">
-          Find an Infertility Specialist →
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- SPECIALIST CTA -->
-
-  <section class="section">
-
-    <div class="specialist-cta">
-
-      <h2>
-        Looking for an Infertility Specialist?
-      </h2>
-
+    <div class="hero">
+      <span class="eyebrow">Trusted Fertility Care Directory</span>
+      <h1>Find Fertility & IVF Specialists You Can Connect With</h1>
       <p>
-        Start your search by city or use your location to discover
-        specialists near you.
+        Explore fertility specialists across Chandigarh, Panchkula, Rupnagar
+        and New Chandigarh, and request an appointment through FertiBridge.
       </p>
+      <a class="btn btn-primary" href="#specialists">Explore Specialists</a>
+    </div>
+  </div>
+</header>
 
-      <a href="Specialist.html" class="button button-outline">
-        Find a Specialist Near You →
-      </a>
+<main>
 
+<section id="specialists">
+  <div class="container">
+    <div class="section-title">
+      <h2>Featured Fertility Specialists</h2>
+      <p>Professional profiles with publicly available information and official links.</p>
     </div>
 
-  </section>
+    <div class="doctor-grid">
 
+      <!-- DOCTOR 1 -->
+      <article class="doctor-card">
+        <!-- Replace image URL later with high-resolution doctor photo -->
+        <img class="doctor-photo"
+             src="https://via.placeholder.com/800x600?text=Dr.+Manisha+Jain"
+             alt="Dr. Manisha Jain - Fertility and IVF Specialist"
+             loading="lazy">
 
-  <!-- CONTACT -->
+        <div class="doctor-content">
+          <h3>Dr. Manisha Jain</h3>
+          <div class="role">Fertility & IVF Specialist</div>
 
-  <section class="contact" id="contact">
+          <p class="meta"><strong>Location:</strong> Chandigarh</p>
+          <p class="meta"><strong>Experience:</strong> 15+ years*</p>
 
-    <div class="section">
-
-      <div class="contact-box">
-
-        <div class="section-heading">
-
-          <div class="eyebrow">
-            Contact FertiBridge
+          <div class="tags">
+            <span class="tag">IVF</span>
+            <span class="tag">ICSI</span>
+            <span class="tag">IUI</span>
+            <span class="tag">Fertility Preservation</span>
+            <span class="tag">Male Infertility</span>
           </div>
 
-          <h2>
-            We're here to help connect you.
-          </h2>
+          <div class="links">
+            <a class="link-pill"
+               href="https://www.drmanishajainfertility.com"
+               target="_blank" rel="noopener noreferrer">Website</a>
 
-          <p>
-            Have a question about FertiBridge or want to know more about
-            joining our specialist network?
-          </p>
+            <a class="link-pill"
+               href="https://maps.app.goo.gl/9ZTrZGny6t36omyi7?g_st=iw"
+               target="_blank" rel="noopener noreferrer">Google Profile</a>
 
+            <a class="link-pill"
+               href="https://youtu.be/jRvr7msjiLE"
+               target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-secondary" href="#appointment">View Profile</a>
+            <a class="btn btn-primary" href="#appointment">Book Appointment</a>
+          </div>
         </div>
+      </article>
 
-        <a href="mailto:info@fertibridge.in" class="button button-primary">
-          Contact Us
-        </a>
 
-      </div>
+      <!-- DOCTOR 2 -->
+      <article class="doctor-card">
+        <!-- Replace image URL later with high-resolution doctor photo -->
+        <img class="doctor-photo"
+             src="https://via.placeholder.com/800x600?text=Dr.+Anadeep+Chandi"
+             alt="Dr. Anadeep Chandi - Reproductive Medicine Specialist"
+             loading="lazy">
+
+        <div class="doctor-content">
+          <h3>Dr. Anadeep Chandi</h3>
+          <div class="role">Reproductive Medicine & Fertility Specialist</div>
+
+          <p class="meta"><strong>Location:</strong> Panchkula</p>
+          <p class="meta"><strong>Hospital:</strong> Cloudnine Hospital, Panchkula</p>
+
+          <div class="tags">
+            <span class="tag">IVF</span>
+            <span class="tag">IUI</span>
+            <span class="tag">ICSI</span>
+            <span class="tag">PCOS</span>
+            <span class="tag">Endometriosis</span>
+            <span class="tag">Laparoscopy</span>
+          </div>
+
+          <div class="links">
+            <a class="link-pill"
+               href="https://www.instagram.com/dr_anadeep.chandi"
+               target="_blank" rel="noopener noreferrer">Instagram</a>
+
+            <a class="link-pill"
+               href="https://www.linkedin.com/in/dr-anadeep-chandi-6826a4189"
+               target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-secondary" href="#appointment">View Profile</a>
+            <a class="btn btn-primary" href="#appointment">Book Appointment</a>
+          </div>
+        </div>
+      </article>
+
+
+      <!-- DOCTOR 3 -->
+      <article class="doctor-card">
+        <!-- Replace image URL later with high-resolution doctor photo -->
+        <img class="doctor-photo"
+             src="https://via.placeholder.com/800x600?text=Dr.+Navneet+Kaur"
+             alt="Dr. Navneet Kaur - Gynaecology and Fertility Care"
+             loading="lazy">
+
+        <div class="doctor-content">
+          <h3>Dr. Navneet Kaur</h3>
+          <div class="role">Gynaecology & Fertility Care</div>
+
+          <p class="meta"><strong>Locations:</strong> Rupnagar (Ropar), Punjab & New Chandigarh</p>
+          <p class="meta"><strong>Experience:</strong> 7 years*</p>
+
+          <div class="tags">
+            <span class="tag">Women's Health</span>
+            <span class="tag">Gynaecology</span>
+            <span class="tag">Fertility Care</span>
+          </div>
+
+          <div class="links">
+            <a class="link-pill"
+               href="https://www.instagram.com/dr_navneet_gynac"
+               target="_blank" rel="noopener noreferrer">Instagram</a>
+
+            <!-- Google share link supplied by the doctor/user -->
+            <a class="link-pill"
+               href="https://share.google/XpqjRuDFqNrySkJ5A"
+               target="_blank" rel="noopener noreferrer">Google Profile</a>
+          </div>
+
+          <div class="card-actions">
+            <a class="btn btn-secondary" href="#appointment">View Profile</a>
+            <a class="btn btn-primary" href="#appointment">Book Appointment</a>
+          </div>
+        </div>
+      </article>
 
     </div>
 
-  </section>
+    <p style="font-size:.8rem;color:#718096;margin-top:20px;">
+      *Experience figures are based on information supplied/located during profile preparation
+      and should be confirmed with the respective doctor before final publication.
+    </p>
+  </div>
+</section>
 
 
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="footer-inner">
-
-      <div class="footer-brand">
-        <h2>FertiBridge</h2>
-        <p>
-          Connecting patients with trusted infertility specialists
-          and making the journey to fertility care simpler.
-        </p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="Specialist.html">Specialists</a>
-        <a href="#patient-guide">Patient Guide</a>
-        <a href="#contact">Contact</a>
-      </div>
-
+<section id="appointment" class="appointment">
+  <div class="container">
+    <div class="section-title">
+      <h2>Book an Appointment</h2>
+      <p>Submit your details and the FertiBridge team can follow up with you.</p>
     </div>
 
-    <div class="copyright">
-      © 2026 FertiBridge. All rights reserved.
+    <div class="form-box">
+      <h3>Appointment Request</h3>
+      <p>
+        Click below to open the FertiBridge Google Form. Your submissions
+        should be collected in the Google Sheet connected to that form.
+      </p>
+
+      <div class="notice">
+        IMPORTANT: Replace the placeholder link below with your actual
+        FertiBridge Google Form URL.
+      </div>
+
+      <!--
+        GOOGLE FORM SETUP:
+        1. Create your Google Form.
+        2. Add a "Select Doctor" dropdown with the 3 doctors.
+        3. Add Name, Phone, City, Preferred Date/Time and Message.
+        4. In Google Forms, open Responses -> Link to Google Sheets.
+        5. Copy the Form's "Send" link.
+        6. Replace YOUR_GOOGLE_FORM_URL below.
+      -->
+      <a class="btn btn-primary"
+         href="YOUR_GOOGLE_FORM_URL"
+         target="_blank" rel="noopener noreferrer">
+        Book Appointment
+      </a>
+
+      <p style="margin-top:15px;color:#718096;font-size:.85rem;">
+        We use the information you submit only to respond to your appointment request.
+      </p>
     </div>
+  </div>
+</section>
 
-  </footer>
 
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About FertiBridge</h2>
+      <p>
+        FertiBridge helps patients discover fertility specialists through
+        structured professional profiles and links to doctors' official channels.
+      </p>
+    </div>
+  </div>
+</section>
 
-  <!-- MOBILE MENU SCRIPT -->
+</main>
 
-  <script>
-
-    function toggleMenu() {
-      const menu = document.getElementById("navLinks");
-      menu.classList.toggle("active");
-    }
-
-    document.querySelectorAll(".nav-links a").forEach(function(link) {
-
-      link.addEventListener("click", function() {
-
-        document
-          .getElementById("navLinks")
-          .classList.remove("active");
-
-      });
-
-    });
-
-  </script>
+<footer>
+  <div class="container">
+    <strong>FertiBridge</strong>
+    <p>Fertility & IVF Specialist Directory</p>
+    <p>© 2026 FertiBridge. All rights reserved.</p>
+  </div>
+</footer>
 
 </body>
 </html>
