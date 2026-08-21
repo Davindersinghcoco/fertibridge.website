@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join as a Doctor | Fertility Bridge</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f5ed;
+      color: #173b2d;
+    }
+
+    header {
+      background: #173b2d;
+      color: #d4af37;
+      padding: 24px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      color: #fff;
+      margin: 6px 0 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .hero h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #173b2d;
+    }
+
+    .hero p {
+      color: #666;
+    }
+
+    .notice {
+      background: #fff8dc;
+      border-left: 5px solid #d4af37;
+      padding: 16px;
+      margin-bottom: 25px;
+      border-radius: 8px;
+    }
+
+    .form-card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .form-section {
+      margin-bottom: 30px;
+    }
+
+    .form-section h3 {
+      color: #173b2d;
+      border-bottom: 2px solid #d4af37;
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      border-radius: 9px;
+      background: #173b2d;
+      color: #fff;
+      font-size: 17px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #0f2d21;
+    }
+
+    .success {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #e7f5e9;
+      border-left: 5px solid #2d7a46;
+      border-radius: 7px;
+      color: #245c35;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 30px 0;
+    }
+
+    .step {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      border-top: 3px solid #d4af37;
+    }
+
+    footer {
+      margin-top: 50px;
+      background: #173b2d;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media (max-width: 650px) {
+      .row,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .form-card {
+        padding: 20px;
+      }
+
+      .hero h2 {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Fertility Bridge</h1>
+  <p>Connecting Fertility Experts with Patients</p>
+</header>
+
+<div class="container">
+
+  <div class="hero">
+    <h2>Join as a Doctor</h2>
+    <p>
+      Create your professional profile and become part of the Fertility Bridge network.
+    </p>
+  </div>
+
+  <div class="notice">
+    <strong>Important:</strong>
+    Your profile will NOT be published immediately.
+    Every application is reviewed and approved by our admin team before it becomes visible on the website.
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <strong>1. Submit</strong>
+      <p>Fill in your professional details.</p>
+    </div>
+
+    <div class="step">
+      <strong>2. Review</strong>
+      <p>Our team verifies your information.</p>
+    </div>
+
+    <div class="step">
+      <strong>3. Approval</strong>
+      <p>Your profile goes live after approval.</p>
+    </div>
+  </div>
+
+  <div class="form-card">
+
+    <form id="doctorForm">
+
+      <div class="form-section">
+        <h3>Personal Information</h3>
+
+        <div class="row">
+          <div>
+            <label>Full Name *</label>
+            <input type="text" name="name" required>
+          </div>
+
+          <div>
+            <label>Gender</label>
+            <select name="gender">
+              <option value="">Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <label>Profile Photo *</label>
+        <input type="file" name="photo" accept="image/*" required>
+      </div>
+
+      <div class="form-section">
+        <h3>Professional Information</h3>
+
+        <label>Speciality *</label>
+        <select name="speciality" required>
+          <option value="">Select speciality</option>
+          <option>IVF Specialist</option>
+          <option>Embryologist</option>
+          <option>Gynecologist</option>
+          <option>Andrologist</option>
+          <option>Fertility Counselor</option>
+          <option>Other</option>
+        </select>
+
+        <div class="row">
+          <div>
+            <label>Qualification *</label>
+            <input type="text" name="qualification" required>
+          </div>
+
+          <div>
+            <label>Years of Experience</label>
+            <input type="number" name="experience" min="0">
+          </div>
+        </div>
+
+        <label>Professional Bio</label>
+        <textarea
+          name="bio"
+          placeholder="Tell patients about your experience and expertise..."
+        ></textarea>
+
+        <label>Services / Expertise</label>
+        <textarea
+          name="services"
+          placeholder="Example: IVF, ICSI, Fertility Consultation..."
+        ></textarea>
+      </div>
+
+      <div class="form-section">
+        <h3>Clinic Information</h3>
+
+        <label>Clinic / Hospital Name *</label>
+        <input type="text" name="clinic" required>
+
+        <div class="row">
+          <div>
+            <label>City *</label>
+            <input type="text" name="city" required>
+          </div>
+
+          <div>
+            <label>State</label>
+            <input type="text" name="state">
+          </div>
+        </div>
+
+        <label>Clinic Address</label>
+        <textarea name="address"></textarea>
+      </div>
+
+      <div class="form-section">
+        <h3>Contact & Social Media</h3>
+
+        <div class="row">
+          <div>
+            <label>Email *</label>
+            <input type="email" name="email" required>
+          </div>
+
+          <div>
+            <label>Phone Number *</label>
+            <input type="tel" name="phone" required>
+          </div>
+        </div>
+
+        <label>Instagram URL</label>
+        <input
+          type="url"
+          name="instagram"
+          placeholder="https://www.instagram.com/..."
+        >
+
+        <label>Website URL</label>
+        <input
+          type="url"
+          name="website"
+          placeholder="https://..."
+        >
+      </div>
+
+      <div class="form-section">
+        <h3>Verification Documents</h3>
+
+        <label>Medical / Professional Certificate</label>
+        <input type="file" name="certificate" accept=".pdf,.jpg,.jpeg,.png">
+
+        <label>Additional Documents</label>
+        <input type="file" name="documents" multiple accept=".pdf,.jpg,.jpeg,.png">
+      </div>
+
+      <button type="submit" class="submit-btn">
+        Submit for Approval
+      </button>
+
+      <div class="success" id="successMessage">
+        <strong>Application Submitted!</strong><br>
+        Your profile is currently pending admin approval.
+        It will become visible on Fertility Bridge only after approval.
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+<footer>
+  <p>© Fertility Bridge. All Rights Reserved.</p>
+</footer>
+
+<script>
+  document.getElementById("doctorForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    document.getElementById("successMessage").style.display = "block";
+
+    window.scrollTo({
+      top: document.getElementById("successMessage").offsetTop - 100,
+      behavior: "smooth"
+    });
+  });
+</script>
+
+</body>
+</html>
