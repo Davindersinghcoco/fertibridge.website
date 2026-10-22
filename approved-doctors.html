@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>Approved Fertility Specialists | FertiBridge</title>
+<meta name="description" content="Discover fertility specialists whose profiles have been approved for listing on FertiBridge. Search by city, specialty, or doctor name.">
+<link rel="icon" href="favicon.png">
+<style>
+:root{--ink:#153b40;--teal:#087c78;--soft:#e9f6f3;--line:#d6e7e3;--muted:#5e7376;--bg:#f7fbfa}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
+a{color:var(--teal)}header{background:#fff;border-bottom:1px solid var(--line)}.bar{max-width:1100px;margin:auto;padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.brand{font-size:1.5rem;font-weight:800;color:var(--teal);text-decoration:none}.brand img{width:180px;max-width:55vw;vertical-align:middle}nav{display:flex;gap:16px;flex-wrap:wrap}nav a{color:var(--ink);text-decoration:none;font-size:.92rem;font-weight:650}nav a[aria-current]{color:var(--teal)}
+main{max-width:1120px;margin:auto;padding:35px 20px 65px}.eyebrow{font-size:.78rem;font-weight:750;text-transform:uppercase;letter-spacing:.12em;color:var(--teal)}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2;margin:9px 0 13px}.intro{max-width:780px;color:var(--muted);margin:0 0 24px}.toolbar{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:12px;margin-bottom:18px}.field label{display:block;font-size:.82rem;font-weight:750;margin-bottom:6px}.field input,.field select{width:100%;border:1px solid #bed4d1;border-radius:11px;padding:12px 13px;background:#fff;color:var(--ink);font:inherit;min-height:48px}.field input:focus,.field select:focus{outline:2px solid #77bdb6;outline-offset:1px}
+#status{font-size:.94rem;color:var(--muted);margin:14px 0 18px}#status.error{color:#a12f3d}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.card{min-width:0;background:white;border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 5px 24px #153b4008}.card h2{font-size:1.3rem;margin:0 0 7px;line-height:1.3;overflow-wrap:anywhere}.tag{display:inline-block;background:var(--soft);color:#0d635f;font-size:.79rem;font-weight:700;border-radius:100px;padding:5px 11px;margin-bottom:12px}.place{color:var(--muted);margin:0 0 15px}.details{margin:0 0 17px}.details p{margin:6px 0;overflow-wrap:anywhere;white-space:pre-wrap}.details strong{color:#234b50}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border-radius:10px;background:var(--teal);color:white;text-decoration:none;font-weight:700}.button.secondary{background:var(--soft);color:var(--ink)}.empty{background:#fff;border:1px solid var(--line);padding:28px;border-radius:18px}.empty a{font-weight:700}.disclaimer{margin-top:24px;color:var(--muted);font-size:.86rem}footer{text-align:center;border-top:1px solid var(--line);padding:25px;color:var(--muted);font-size:.85rem}
+@media(max-width:740px){main{padding:26px 16px 45px}.toolbar{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.card{padding:20px}.bar{padding:14px 16px}nav{gap:11px}nav a{font-size:.84rem}}
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="brand" href="index.html"><img src="fertibridge-logo-header.png" alt="FertiBridge" onerror="this.style.display='none';this.parentNode.append('FertiBridge')"></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="gynecologists.html">Specialists</a><a href="approved-doctors.html" aria-current="page">Approved Doctors</a><a href="join-doctor.html">Join as a Doctor</a></nav></div></header>
+<main>
+<div class="eyebrow">FertiBridge Doctor Network</div>
+<h1>Approved Doctor Profiles</h1>
+<p class="intro">Explore fertility-care professionals who submitted their profiles to FertiBridge and whose applications have been approved for listing. Search by doctor name, city, or specialty.</p>
+<div class="toolbar" role="search">
+<div class="field"><label for="search">Search doctors</label><input id="search" type="search" placeholder="Doctor, clinic, or city" autocomplete="off"></div>
+<div class="field"><label for="city">City</label><select id="city"><option value="">All cities</option></select></div>
+<div class="field"><label for="specialty">Specialty</label><select id="specialty"><option value="">All specialties</option></select></div>
+</div>
+<div id="status" role="status" aria-live="polite">Loading approved profiles…</div>
+<div id="cards" class="cards" aria-live="polite"></div>
+<p class="disclaimer">Approval means a profile was accepted for listing; it is not a guarantee of medical outcomes or an endorsement. Please verify professional credentials, consultation details, and availability before booking. Private contact details and submitted certificates are not published.</p>
+</main>
+<footer>© FertiBridge · Connecting patients with infertility specialists</footer>
+<script type="module">
+import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
+const sb=createClient('https://adenmztahinielcocylk.supabase.co','sb_publishable_18hrEb93-JmZuX_tccS5Mw_QTE8Ciiz');
+const $=id=>document.getElementById(id);
+const cards=$('cards'),status=$('status'),search=$('search'),city=$('city'),specialty=$('specialty');
+let profiles=[];
+const make=(tag,cls,text)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e};
+function safeLink(url){try{const u=new URL(url);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null}catch{return null}}
+function addLine(parent,label,value){if(value===null||value===undefined||String(value).trim()==='')return;const p=make('p');const b=make('strong','',label+': ');p.append(b,document.createTextNode(String(value)));parent.append(p)}
+function populate(select,values){for(const v of [...new Set(values.filter(Boolean))].sort((a,b)=>a.localeCompare(b))){const o=document.createElement('option');o.value=v;o.textContent=v;select.append(o)}}
+function render(){const term=search.value.trim().toLocaleLowerCase();const found=profiles.filter(a=>(!city.value||a.city===city.value)&&(!specialty.value||a.specialty===specialty.value)&&(!term||[a.doctor_name,a.specialty,a.clinic_name,a.city,a.state,a.qualifications,a.services].some(v=>String(v||'').toLocaleLowerCase().includes(term))));cards.replaceChildren();status.className='';status.textContent=found.length+' approved profile'+(found.length===1?'':'s')+' found';
+if(!found.length){const empty=make('div','empty');empty.append(make('p','',profiles.length?'No profiles match these filters. Try another city or specialty.':'No newly approved doctor profiles are available yet. You can still explore the existing FertiBridge specialist directory.'));const link=make('a','', 'Browse existing specialists');link.href='gynecologists.html';empty.append(link);cards.append(empty);return}
+for(const a of found){const card=make('article','card');card.append(make('span','tag',a.specialty||'Fertility care'));card.append(make('h2','',a.doctor_name));card.append(make('p','place',[a.city,a.state].filter(Boolean).join(', ')));const details=make('div','details');addLine(details,'Qualification',a.qualifications);if(a.experience_years!==null&&a.experience_years!==undefined)addLine(details,'Experience',a.experience_years+' years');addLine(details,'Clinic / Hospital',a.clinic_name);addLine(details,'Clinic address',a.clinic_address);addLine(details,'Expertise',a.services);addLine(details,'About',a.professional_bio);card.append(details);const actions=make('div','actions');const appt=make('a','button','Request Appointment');appt.href='https://forms.gle/2HnxqNq4fGGRbo8t7';appt.target='_blank';appt.rel='noopener noreferrer';actions.append(appt);for(const [label,url] of [['Website',a.website],['Instagram',a.instagram]]){const href=safeLink(url);if(!href)continue;const link=make('a','button secondary',label);link.href=href;link.target='_blank';link.rel='noopener noreferrer';actions.append(link)}card.append(actions);cards.append(card)}
+}
+for(const el of [search,city,specialty])el.addEventListener(el===search?'input':'change',render);
+try{const {data,error}=await sb.from('fertibridge_public_doctors').select('doctor_name,specialty,qualifications,experience_years,clinic_name,city,state,clinic_address,website,instagram,professional_bio,services').order('published_at',{ascending:false}).limit(300);if(error)throw error;profiles=data||[];populate(city,profiles.map(x=>x.city));populate(specialty,profiles.map(x=>x.specialty));render()}catch(e){console.error('FertiBridge profiles could not load',e);status.textContent='Profiles are temporarily unavailable. Please try again later.';status.className='error'}
+</script>
+</body>
+</html>
