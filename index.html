@@ -27,14 +27,17 @@ nav a.logo img{display:block;width:clamp(145px,18vw,218px);max-width:100%;height
 .hero-box.brand-hero img{display:block;max-width:100%;height:auto;object-fit:contain}
 @media(max-width:560px){nav a.logo{padding:5px 7px;max-width:64vw}nav a.logo img{width:165px}.mobile-nav summary{padding:9px 11px}.hero-box.brand-hero{min-height:160px}}
 @media(max-width:950px){
-  nav{position:relative;gap:12px;padding:14px 0;flex-wrap:wrap}
+  nav{position:fixed;top:0;left:0;right:0;width:100%;padding:10px max(4vw,12px);margin:0;background:#083c37;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap;box-shadow:0 4px 15px #002c2740}
+  body{padding-top:76px}
+  nav a.logo{max-width:calc(100vw - 145px)}
+  nav a.logo img{width:clamp(125px,35vw,185px)}
   .menu{display:none}
-  .mobile-nav{display:block;margin-left:auto;position:relative;z-index:10}
+  .mobile-nav{display:block;margin-left:auto;position:relative;z-index:10;flex-shrink:0}
   .mobile-nav summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;background:#fff;color:#083c37;border-radius:10px;padding:10px 15px;font-weight:800;min-height:44px}
   .mobile-nav summary::-webkit-details-marker{display:none}
-  .mobile-nav summary::before{content:'☰';font-size:20px;line-height:1}
-  .mobile-nav[open] summary::before{content:'✕'}
-  .mobile-links{position:absolute;right:0;top:calc(100% + 8px);width:min(310px,88vw);max-height:72vh;overflow:auto;display:flex;flex-direction:column;padding:9px;background:white;border-radius:14px;box-shadow:0 12px 35px #001b1870}
+
+
+  .mobile-links{position:absolute;right:0;top:calc(100% + 8px);width:min(310px,88vw);max-height:calc(100dvh - 90px);overflow:auto;display:flex;flex-direction:column;padding:9px;background:white;border-radius:14px;box-shadow:0 12px 35px #001b1870}
   .mobile-links a{display:block;color:#17332e;padding:12px 14px;border-radius:8px;font-weight:700;line-height:1.35}
   .mobile-links a:hover,.mobile-links a:focus-visible{background:#e9faf6}
   .mobile-links .join-link{background:#0f766e;color:white;margin-top:4px;text-align:center}
@@ -63,7 +66,7 @@ nav a.logo img{display:block;width:clamp(145px,18vw,218px);max-width:100%;height
 <a href="approved-doctors.html">Approved Doctors</a>
 </div>
 <details class="mobile-nav">
-<summary aria-label="Open navigation menu">Menu</summary>
+<summary aria-label="Open navigation menu">☰ Menu</summary>
 <div class="mobile-links">
 <a href="index.html">Home</a>
 <a href="ivf-specialists.html">IVF Specialists</a>
