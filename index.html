@@ -4,40 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>FertiBridge | IVF Specialists, Gynecologists, Urologists & Embryologists</title>
-<meta name="description" content="Find IVF specialists, gynecologists, urologists and embryologists through FertiBridge. Explore fertility care options and request an appointment.">
-<meta name="robots" content="index,follow,max-image-preview:large">
-
-<link rel="canonical" href="https://fertibridge.in/">
-<meta name="theme-color" content="#0f766e">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="FertiBridge">
-<meta property="og:title" content="FertiBridge | Fertility Care Specialist Directory">
-<meta property="og:description" content="Discover IVF specialists, gynecologists, urologists and embryologists through FertiBridge.">
-<meta property="og:url" content="https://fertibridge.in/">
-<meta name="twitter:card" content="summary">
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Organization",
-  "name":"FertiBridge",
-  "url":"https://fertibridge.in/",
-  "logo":"https://fertibridge.in/fertibridge-logo.png",
-  "contactPoint":{
-    "@type":"ContactPoint",
-    "telephone":"+91-9056143112",
-    "contactType":"customer support",
-    "areaServed":"IN",
-    "availableLanguage":["English","Hindi","Punjabi"]
-  }
-}
-</script>
-
+<meta name="description" content="Find IVF specialists, gynecologists, urologists and embryologists through FertiBridge. Explore fertility care options and book an appointment.">
+<meta name="robots" content="index,follow">
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;color:#17332e;background:#f7fcfb;line-height:1.6}
 a{text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
 header{background:linear-gradient(135deg,#063c36,#0f766e,#59b9aa);color:white}
-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}.logo{font-size:1.5rem;font-weight:900;color:white}
-.menu{display:flex;gap:16px;flex-wrap:wrap}.menu a{color:white;font-weight:700;font-size:.9rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:12px}.logo{font-size:1.5rem;font-weight:900;color:white}
+.menu{display:flex;gap:16px;flex-wrap:wrap;align-items:center}.menu a{color:white;font-weight:700;font-size:.9rem}.mobile-nav{display:none}.menu a:focus-visible,.mobile-nav a:focus-visible,.mobile-nav summary:focus-visible{outline:3px solid #d4af37;outline-offset:3px}
 .hero{padding:70px 0 80px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
 h1{font-size:clamp(2.5rem,5vw,4.4rem);line-height:1.05;margin:15px 0}.hero p{font-size:1.1rem;color:#e8fffa}
 .hero-box{min-height:290px;border:1px solid #ffffff44;border-radius:28px;background:#ffffff18;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1.3rem;font-weight:800}
@@ -46,13 +20,28 @@ section{padding:65px 0}.heading{text-align:center;margin-bottom:30px}.heading h2
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:white;border:1px solid #dcece8;border-radius:20px;padding:25px;box-shadow:0 10px 30px #0f766e12}.card h3{margin-top:0;font-size:1.35rem}.icon{font-size:2.4rem}
 .cta{background:#e9faf6;text-align:center}.cta .box{background:white;border:1px solid #dcece8;border-radius:20px;padding:35px}
 footer{background:#083c37;color:#dff8f2;text-align:center;padding:35px}
-@media(max-width:800px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.menu{gap:9px}}
-@media(max-width:560px){.grid{grid-template-columns:1fr}.menu{display:none}.hero{padding:50px 0}}
-
-/* FertiBridge brand logo: desktop and mobile */
 nav a.logo{display:inline-flex;align-items:center;flex-shrink:0;background:#fff;border-radius:13px;padding:7px 11px;line-height:1;box-shadow:0 3px 14px #002c271a;max-width:60vw}
-nav a.logo img{display:block;width:clamp(158px,18vw,218px);max-width:100%;height:auto;object-fit:contain}
-@media(max-width:600px){nav a.logo{padding:6px 8px}nav a.logo img{width:170px}}
+nav a.logo img{display:block;width:clamp(145px,18vw,218px);max-width:100%;height:auto;object-fit:contain}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.hero-box.brand-hero{background:#fff;padding:22px}
+.hero-box.brand-hero img{display:block;max-width:100%;height:auto;object-fit:contain}
+@media(max-width:560px){nav a.logo{padding:5px 7px;max-width:64vw}nav a.logo img{width:165px}.mobile-nav summary{padding:9px 11px}.hero-box.brand-hero{min-height:160px}}
+@media(max-width:950px){
+  nav{position:relative;gap:12px;padding:14px 0;flex-wrap:wrap}
+  .menu{display:none}
+  .mobile-nav{display:block;margin-left:auto;position:relative;z-index:10}
+  .mobile-nav summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;background:#fff;color:#083c37;border-radius:10px;padding:10px 15px;font-weight:800;min-height:44px}
+  .mobile-nav summary::-webkit-details-marker{display:none}
+  .mobile-nav summary::before{content:'☰';font-size:20px;line-height:1}
+  .mobile-nav[open] summary::before{content:'✕'}
+  .mobile-links{position:absolute;right:0;top:calc(100% + 8px);width:min(310px,88vw);max-height:72vh;overflow:auto;display:flex;flex-direction:column;padding:9px;background:white;border-radius:14px;box-shadow:0 12px 35px #001b1870}
+  .mobile-links a{display:block;color:#17332e;padding:12px 14px;border-radius:8px;font-weight:700;line-height:1.35}
+  .mobile-links a:hover,.mobile-links a:focus-visible{background:#e9faf6}
+  .mobile-links .join-link{background:#0f766e;color:white;margin-top:4px;text-align:center}
+  .hero{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.hero{padding:45px 0}.hero-box{min-height:180px}.logo{font-size:1.35rem}}
 </style>
 <link rel="icon" type="image/png" href="favicon.png">
 <meta property="og:image" content="https://fertibridge.in/fertibridge-logo.png">
@@ -61,27 +50,43 @@ nav a.logo img{display:block;width:clamp(158px,18vw,218px);max-width:100%;height
 <header>
 <div class="wrap">
 <nav>
-<a class="logo" href="index.html"><img src="fertibridge-logo-header.png" alt="FertiBridge – Connecting patients with trusted infertility specialists" width="218" height="59" loading="eager"></a>
+<a class="logo" href="index.html"><img src="fertibridge-logo-header.png" alt="FertiBridge – Connecting patients with trusted infertility specialists" width="218" height="56" loading="eager"><span class="visually-hidden">FertiBridge</span></a>
 <div class="menu">
 <a href="index.html">Home</a>
 <a href="ivf-specialists.html">IVF Specialists</a>
+<a href="gynecologists.html">Gynecologists</a>
 <a href="urologists.html">Urologists</a>
 <a href="embryologists.html">Embryologists</a>
-<a href="gynecologists.html">Gynecologists</a>
-<a href="appointment.html">Book Appointment</a>
+<a href="https://forms.gle/2HnxqNq4fGGRbo8t7" target="_blank" rel="noopener noreferrer">Book Appointment</a>
 <a href="join-fertibridge.html">Join FertiBridge</a>
-<a href="join-doctor.html"> Join as a Doctor</a>
+<a href="join-doctor.html">Join as a Doctor</a>
+<a href="approved-doctors.html">Approved Doctors</a>
 </div>
+<details class="mobile-nav">
+<summary aria-label="Open navigation menu">Menu</summary>
+<div class="mobile-links">
+<a href="index.html">Home</a>
+<a href="ivf-specialists.html">IVF Specialists</a>
+<a href="gynecologists.html">Gynecologists</a>
+<a href="urologists.html">Urologists</a>
+<a href="embryologists.html">Embryologists</a>
+<a href="approved-doctors.html">Approved Doctors</a>
+<a href="https://forms.gle/2HnxqNq4fGGRbo8t7" target="_blank" rel="noopener noreferrer">Book Appointment</a>
+<a href="join-fertibridge.html">Join FertiBridge</a>
+<a class="join-link" href="join-doctor.html">Join as a Doctor</a>
+</div>
+</details>
 </nav>
 <div class="hero">
 <div>
 <div>TRUSTED FERTILITY CARE DIRECTORY</div>
 <h1>Find the right fertility specialist with confidence.</h1>
-<p>Discover IVF specialists, gynecologists, urologists and embryologists through FertiBridge and take the next step toward fertility care.</p>
+<p>Discover IVF specialists, gynecologists, urologists and embryologists through FertiBridge and take the next step toward trusted fertility care.</p>
 <a class="btn white" href="ivf-specialists.html">Explore Specialists</a>
-<a class="btn" style="border:1px solid #ffffff88;color:white" href="appointment.html">Book Appointment</a>
+<a class="btn" style="border:1px solid #ffffff88;color:white" href="https://forms.gle/2HnxqNq4fGGRbo8t7" target="_blank" rel="noopener noreferrer">Book Appointment</a>
+<a class="btn white" href="join-doctor.html">Join as a Doctor</a>
 </div>
-<div class="hero-box" style="background:#fff;padding:22px"><img src="fertibridge-logo.png" alt="FertiBridge fertility specialists directory logo" width="560" height="185" style="max-width:100%;height:auto" fetchpriority="high"></div>
+<div class="hero-box brand-hero"><img src="fertibridge-logo.png" alt="FertiBridge fertility specialist portal logo" width="560" height="185" fetchpriority="high"></div>
 </div>
 </div>
 </header>
@@ -90,23 +95,24 @@ nav a.logo img{display:block;width:clamp(158px,18vw,218px);max-width:100%;height
 <div class="wrap">
 <div class="heading"><h2>Find a Specialist</h2><p class="muted">Explore our growing fertility-care directory.</p></div>
 <div class="grid">
+<div class="card"><div class="icon">🌿</div><h3>Gynecologists</h3><p class="muted">Find gynecologists by city, hospital or name and request an appointment.</p><a class="btn primary" href="gynecologists.html">View Gynecologists</a></div>
 <div class="card"><div class="icon">🧬</div><h3>IVF Specialists</h3><p class="muted">Find fertility and reproductive medicine specialists for IVF, IUI and related care.</p><a class="btn primary" href="ivf-specialists.html">View IVF Specialists</a></div>
 <div class="card"><div class="icon">🩺</div><h3>Urologists</h3><p class="muted">Explore urologists with a focus on urology and male reproductive health.</p><a class="btn primary" href="urologists.html">View Urologists</a></div>
 <div class="card"><div class="icon">🔬</div><h3>Embryologists</h3><p class="muted">Discover embryology and IVF laboratory professionals involved in modern fertility treatment.</p><a class="btn primary" href="embryologists.html">View Embryologists</a></div>
-<div class="card"><div class="icon">👩‍⚕️</div><h3>Gynecologists</h3><p class="muted">Find gynecologists by city for women’s health, pregnancy and reproductive care.</p><a class="btn primary" href="gynecologists.html">View Gynecologists</a></div>
 </div>
 </div>
 </section>
 
+<section><div class="wrap"><div class="heading"><h2>Connect with our specialists</h2><p class="muted">Explore their official channels.</p></div><div class="grid"><article class="card"><h3>Dr. Manisha Jain</h3><a class="btn outline" href="https://www.drmanishajainfertility.com" target="_blank" rel="noopener noreferrer">Website</a><a class="btn outline" href="https://maps.app.goo.gl/9ZTrZGny6t36omyi7?g_st=iw" target="_blank" rel="noopener noreferrer">Google Profile</a><a class="btn outline" href="https://youtu.be/jRvr7msjiLE" target="_blank" rel="noopener noreferrer">YouTube</a><a class="btn primary" href="https://forms.gle/2HnxqNq4fGGRbo8t7" target="_blank" rel="noopener noreferrer">Book Appointment</a></article><article class="card"><h3>Dr. Anadeep Chandi</h3><a class="btn outline" href="https://www.instagram.com/dr_anadeep.chandi" target="_blank" rel="noopener noreferrer">Instagram</a><a class="btn outline" href="https://www.linkedin.com/in/dr-anadeep-chandi-6826a4189" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="btn primary" href="https://forms.gle/2HnxqNq4fGGRbo8t7" target="_blank" rel="noopener noreferrer">Book Appointment</a></article></div></div></section>
 <section class="cta">
 <div class="wrap"><div class="box">
 <h2>Ready to book an appointment?</h2>
 <p class="muted">Submit your appointment request through the FertiBridge booking form.</p>
-<a class="btn primary" href="appointment.html">Book Appointment</a>
+<a class="btn primary" href="https://forms.gle/2HnxqNq4fGGRbo8t7" target="_blank" rel="noopener noreferrer">Book Appointment</a>
 </div></div>
 </section>
 
-<footer><div class="wrap"><strong>FertiBridge</strong><p>IVF Specialists • Gynecologists • Urologists • Embryologists</p><p>FertiBridge Support: <a href="tel:+919056143112" style="color:#fff">9056143112</a></p><p>© 2026 FertiBridge</p></div></footer>
+<footer><div class="wrap"><strong>FertiBridge</strong><p>IVF Specialists • Gynecologists • Urologists • Embryologists</p><p>FertiBridge Customer Care: <a style="color:inherit" href="tel:+919056143112">+91 90561 43112</a></p><p>© 2026 FertiBridge</p></div></footer>
 </body>
 </html>
 
