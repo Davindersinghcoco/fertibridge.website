@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Join as a Doctor | Fertility Bridge</title>
+  <title>Join as a Doctor | FertiBridge</title>
 
   <style>
     * {
@@ -125,6 +125,12 @@
       background: #0f2d21;
     }
 
+    .file-hint { color:#64726b;font-size:13px;margin:-12px 0 17px; }
+    .consent-label {display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.5;margin:0 0 20px;}
+    .consent-label input {width:20px;height:20px;flex:0 0 20px;margin:2px 0 0;}
+    .honeypot {position:absolute;left:-10000px;opacity:0;pointer-events:none;}
+    .submit-status {margin:12px 0;color:#8c2626;font-size:14px;}
+    .submit-btn:disabled {opacity:.65;cursor:wait;}
     .success {
       display: none;
       margin-top: 20px;
@@ -178,7 +184,7 @@
 <body>
 
 <header>
-  <h1>Fertility Bridge</h1>
+  <h1>FertiBridge</h1>
   <p>Connecting Fertility Experts with Patients</p>
 </header>
 
@@ -187,7 +193,7 @@
   <div class="hero">
     <h2>Join as a Doctor</h2>
     <p>
-      Create your professional profile and become part of the Fertility Bridge network.
+      Create your professional profile and become part of the FertiBridge network.
     </p>
   </div>
 
@@ -239,7 +245,8 @@
         </div>
 
         <label>Profile Photo *</label>
-        <input type="file" name="photo" accept="image/*" required>
+        <input type="file" name="photo" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required>
+        <p class="file-hint">JPG, PNG or WEBP · Maximum 5 MB</p>
       </div>
 
       <div class="form-section">
@@ -337,20 +344,24 @@
         <h3>Verification Documents</h3>
 
         <label>Medical / Professional Certificate</label>
-        <input type="file" name="certificate" accept=".pdf,.jpg,.jpeg,.png">
+        <input type="file" name="certificate" accept=".pdf,.jpg,.jpeg,.png,.webp">
 
         <label>Additional Documents</label>
-        <input type="file" name="documents" multiple accept=".pdf,.jpg,.jpeg,.png">
+        <input type="file" name="documents" multiple accept=".pdf,.jpg,.jpeg,.png,.webp">
+        <p class="file-hint">Up to 3 additional files · 10 MB each · 20 MB total including photo</p>
       </div>
 
-      <button type="submit" class="submit-btn">
+      <label class="consent-label"><input type="checkbox" id="reviewConsent" required> I agree that FertiBridge may securely store and review my submitted professional details and verification documents for doctor profile approval. Private contact information and certificates will not be shown publicly.</label>
+      <div class="honeypot" aria-hidden="true"><label>Leave this field empty <input type="text" name="website_field" tabindex="-1" autocomplete="off"></label></div>
+      <div class="submit-status" id="submitStatus" role="status" aria-live="polite"></div>
+      <button type="submit" class="submit-btn" id="submitBtn">
         Submit for Approval
       </button>
 
       <div class="success" id="successMessage">
         <strong>Application Submitted!</strong><br>
         Your profile is currently pending admin approval.
-        It will become visible on Fertility Bridge only after approval.
+        It will become visible on FertiBridge only after approval.
       </div>
 
     </form>
@@ -360,19 +371,62 @@
 </div>
 
 <footer>
-  <p>© Fertility Bridge. All Rights Reserved.</p>
+  <p>© FertiBridge. All Rights Reserved.</p>
 </footer>
 
 <script>
-  document.getElementById("doctorForm").addEventListener("submit", function(event) {
+  const form = document.getElementById('doctorForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const statusBox = document.getElementById('submitStatus');
+  const successBox = document.getElementById('successMessage');
+  const endpoint = 'https://adenmztahinielcocylk.supabase.co/functions/v1/fertibridge-doctor-apply';
+  const pick = name => (form.elements.namedItem(name)?.value || '').trim();
+  form.addEventListener('submit', async event => {
     event.preventDefault();
-
-    document.getElementById("successMessage").style.display = "block";
-
-    window.scrollTo({
-      top: document.getElementById("successMessage").offsetTop - 100,
-      behavior: "smooth"
-    });
+    successBox.style.display = 'none';
+    statusBox.textContent = '';
+    if (!form.reportValidity()) return;
+    const photo = form.elements.namedItem('photo').files[0];
+    const certificate = form.elements.namedItem('certificate').files[0];
+    const extra = [...form.elements.namedItem('documents').files];
+    const files = [photo, certificate, ...extra].filter(Boolean);
+    if (!photo || photo.size > 5*1024*1024 || extra.length > 3 ||
+        files.some(file => file.size > 10*1024*1024) ||
+        files.reduce((total, file) => total + file.size, 0) > 20*1024*1024) {
+      statusBox.textContent = 'Please check file sizes: photo max 5 MB, other files max 10 MB, total max 20 MB and up to 3 additional documents.';
+      return;
+    }
+    const payload = new FormData();
+    const fields = {
+      doctor_name: pick('name'), gender: pick('gender'), specialty: pick('speciality'),
+      qualifications: pick('qualification'), experience_years: pick('experience'),
+      professional_bio: pick('bio'), services: pick('services'), clinic_name: pick('clinic'),
+      city: pick('city'), state: pick('state'), clinic_address: pick('address'),
+      email: pick('email'), phone: pick('phone'), instagram: pick('instagram'),
+      website: pick('website'), consent_to_review: 'true', website_field: pick('website_field')
+    };
+    Object.entries(fields).forEach(([key, value]) => payload.append(key, value));
+    payload.append('photo', photo);
+    if (certificate) payload.append('certificate', certificate);
+    extra.forEach(file => payload.append('documents', file));
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting securely...';
+    statusBox.textContent = 'Uploading your application and verification documents. Please keep this page open.';
+    try {
+      const response = await fetch(endpoint, { method:'POST', body:payload });
+      let result = {};
+      try { result = await response.json(); } catch (_) {}
+      if (!response.ok || result.ok !== true) throw new Error(result.error || 'Submission failed. Please try again.');
+      form.reset();
+      statusBox.textContent = '';
+      successBox.style.display = 'block';
+      successBox.scrollIntoView({ behavior:'smooth', block:'center' });
+    } catch (error) {
+      statusBox.textContent = error.message || 'Could not submit. Please check your internet connection and try again.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit for Approval';
+    }
   });
 </script>
 
