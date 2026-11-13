@@ -4,14 +4,22 @@ const sb=createClient('https://adenmztahinielcocylk.supabase.co','sb_publishable
 const $=id=>document.getElementById(id);
 const dateInput=$('preferred_date');const today=new Date();const localDate=d=>{const year=d.getFullYear();return year+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
 dateInput.min=localDate(today);const max=new Date(today);max.setDate(max.getDate()+90);dateInput.max=localDate(max);
-const doctorSelect=$('preferred_doctor');const urlDoctor=new URLSearchParams(location.search).get('doctor');
+const doctorSelect=$('preferred_doctor');
+const bookingParams=new URLSearchParams(location.search);
+const urlDoctor=bookingParams.get('doctor')?.trim();
+const urlDoctorCity=bookingParams.get('doctor_city')?.trim();
 const otherDoctorFields=$('otherDoctorFields'),otherDoctorName=$('other_doctor_name'),otherDoctorCity=$('other_doctor_city');
 function syncOtherDoctor(){const custom=doctorSelect.value==='__other__';otherDoctorFields.classList.toggle('hidden',!custom);otherDoctorName.required=custom;otherDoctorCity.required=custom;if(!custom){otherDoctorName.value='';otherDoctorCity.value='';}}
 doctorSelect.addEventListener('change',syncOtherDoctor);
 
-try{const {data,error}=await sb.from('fertibridge_public_doctors').select('doctor_name').order('doctor_name').limit(300);if(error)throw error;const names=[...new Set((data||[]).map(x=>x.doctor_name).filter(Boolean))];for(const name of names){if([...doctorSelect.options].some(o=>o.value===name))continue;const option=document.createElement('option');option.value=name;option.textContent=name;$('approved-options').append(option)}if(urlDoctor&&[...doctorSelect.options].some(o=>o.value===urlDoctor))doctorSelect.value=urlDoctor;}catch(e){console.warn('Doctor list unavailable',e)}
-if(urlDoctor&&[...doctorSelect.options].some(o=>o.value===urlDoctor))doctorSelect.value=urlDoctor;
-else if(urlDoctor){doctorSelect.value='__other__';otherDoctorName.value=urlDoctor.slice(0,75);}
+try{const {data,error}=await sb.from('fertibridge_public_doctors').select('doctor_name').order('doctor_name').limit(300);if(error)throw error;const names=[...new Set((data||[]).map(x=>x.doctor_name).filter(Boolean))];for(const name of names){if([...doctorSelect.options].some(o=>o.value===name))continue;const option=document.createElement('option');option.value=name;option.textContent=name;$('approved-options').append(option)}}catch(e){console.warn('Doctor list unavailable',e)}
+if(urlDoctor && (urlDoctorCity || ![...doctorSelect.options].some(option=>option.value===urlDoctor))){
+  doctorSelect.value='__other__';
+  otherDoctorName.value=urlDoctor.slice(0,75);
+  otherDoctorCity.value=(urlDoctorCity||'').slice(0,45);
+}else if(urlDoctor){
+  doctorSelect.value=urlDoctor;
+}
 syncOtherDoctor();
 $('booking').addEventListener('submit',async e=>{e.preventDefault();const btn=$('submit'),status=$('status');status.textContent='';status.className='';syncOtherDoctor();if(!$('booking').reportValidity())return;btn.disabled=true;btn.textContent='Sending request…';const payload={patient_name:$('patient_name').value.trim(),patient_phone:$('patient_phone').value.trim(),patient_city:$('patient_city').value.trim(),preferred_doctor:doctorSelect.value==='__other__'?(otherDoctorName.value.trim()+' — '+otherDoctorCity.value.trim()):doctorSelect.value,preferred_date:dateInput.value,preferred_time:$('preferred_time').value,consent_to_contact:$('consent_to_contact').checked,website:$('website').value};
 try{const res=await fetch('https://adenmztahinielcocylk.supabase.co/functions/v1/fertibridge-appointment-request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await res.json();if(!res.ok)throw new Error(data.error||'Please try again later');$('booking').reset();syncOtherDoctor();status.className='notice';status.textContent='Request received! FertiBridge will contact you after checking availability. Your appointment is NOT confirmed yet.';}catch(err){status.className='notice error';status.textContent='Unable to send: '+err.message;}finally{btn.disabled=false;btn.textContent='Send Appointment Request'}
