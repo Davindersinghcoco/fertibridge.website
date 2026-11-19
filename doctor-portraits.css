@@ -1,0 +1,14 @@
+/* Keep doctor portraits the same size across directory cards. */
+.doctor-portrait.avatar {
+  height: 159px;
+}
+
+.doctor-portrait img {
+  display: block;
+  width: 105px;
+  height: 135px;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: 6px;
+  background: #fff;
+}
