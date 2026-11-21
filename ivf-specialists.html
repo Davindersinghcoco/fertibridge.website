@@ -37,9 +37,8 @@ nav{display:block;text-align:center}
 .centre-cards{grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:12px}
 .centre-card{padding:16px;box-shadow:none}
 .centre-card h4{margin:0 0 8px;font-size:1rem;overflow-wrap:anywhere}
-.centre-card dl{margin:0;display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 10px}
-.centre-card dt{font-weight:600}
-.centre-card dd{margin:0;overflow-wrap:anywhere}
+.centre-card address{font-style:normal;overflow-wrap:anywhere}
+.centre-card .address-status{margin:4px 0 0;color:#425d58}
 @media(max-width:600px){.city-links{display:flex;text-align:left}}
 </style>
 </head>
@@ -92,7 +91,7 @@ nav{display:block;text-align:center}
 
 <section id="ivf-centres" class="centre-directory" aria-labelledby="centres-title">
 <h2 id="centres-title">IVF centres by city</h2>
-<p>Browse IVF and fertility listings by city.</p>
+<p>Choose a city to see centre and hospital addresses.</p>
 <nav class="city-links" aria-label="IVF centre cities">
 <a href="#ivf-amritsar">Amritsar</a>
 <a href="#ivf-bathinda">Bathinda</a>
@@ -102,6 +101,7 @@ nav{display:block;text-align:center}
 <a href="#ivf-hisar">Hisar</a>
 <a href="#ivf-jalandhar">Jalandhar</a>
 <a href="#ivf-jammu">Jammu</a>
+<a href="#ivf-kharar">Kharar</a>
 <a href="#ivf-ludhiana">Ludhiana</a>
 <a href="#ivf-moga">Moga</a>
 <a href="#ivf-mohali">Mohali</a>
@@ -116,16 +116,20 @@ nav{display:block;text-align:center}
 <h3 id="ivf-amritsar-title">Amritsar</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Apollo Speciality Hospital Pvt Ltd</h4>
+<h4>Apollo Fertility</h4>
+<address>Naushera House, Urban Circle No. 109, Abadi Court Road, Amritsar, Punjab 143001</address>
 </article>
 <article class="card centre-card">
-<h4>Deep kirpa fertility</h4>
+<h4>Deep Kirpa Fertility Centre</h4>
+<address>Beri Maternity Hospital, G.T. Road, Putlighar, Amritsar, Punjab 143001</address>
 </article>
 <article class="card centre-card">
-<h4>Satjot Human Reproduction</h4>
+<h4>Satjot Human Reproduction &amp; Research Centre</h4>
+<address>118-A, Ranjit Avenue, Main Ajnala Road, near District Courts, Amritsar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>Vardan Infertility &amp; Medical center</h4>
+<h4>Vardaan Medical Center</h4>
+<address>40-A, Kennedy Avenue, Court Road, Amritsar, Punjab 143001</address>
 </article>
 </div>
 </section>
@@ -133,13 +137,16 @@ nav{display:block;text-align:center}
 <h3 id="ivf-bathinda-title">Bathinda</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Chabbra Hospital &amp; ivf center</h4>
+<h4>Chhabra Hospital &amp; Test Tube Baby Centre</h4>
+<address>80 Feet Road, Pukhraj Colony, near the stadium, Bathinda, Punjab 151001</address>
 </article>
 <article class="card centre-card">
-<h4>Gem Hospital</h4>
+<h4>Gem Hospital &amp; IVF Centre</h4>
+<address>40 Feet Road, Namdev Marg, Bathinda, Punjab 151001</address>
 </article>
 <article class="card centre-card">
-<h4>Jindal heart institute, infertility</h4>
+<h4>Jindal Heart Institute &amp; Infertility Centre</h4>
+<address>Power House Road, near Bus Stand, Bathinda, Punjab 151001</address>
 </article>
 </div>
 </section>
@@ -147,25 +154,32 @@ nav{display:block;text-align:center}
 <h3 id="ivf-chandigarh-title">Chandigarh</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Apollo Fertility center</h4>
+<h4>Apollo Fertility</h4>
+<address>SCO 809–810, Sector 22A, opposite Parade Ground, Chandigarh 160022</address>
 </article>
 <article class="card centre-card">
 <h4>Cloudnine Hospital</h4>
+<address>Plot 48, Industrial Area Phase II, Chandigarh</address>
 </article>
 <article class="card centre-card">
-<h4>Evaa Fertility Center</h4>
+<h4>Evaa Fertility &amp; Gynaecology Centre</h4>
+<address>SCO 908, NAC Manimajra, near Housing Board traffic lights, Chandigarh</address>
 </article>
 <article class="card centre-card">
-<h4>Indira ivf center</h4>
+<h4>Indira IVF</h4>
+<address>SCO 156–159, Madhya Marg, Sector 9C, Chandigarh 160009</address>
 </article>
 <article class="card centre-card">
-<h4>Jindal IVF &amp; Sant Memorial</h4>
+<h4>Jindal IVF &amp; Sant Memorial Nursing Home</h4>
+<address>3050, Sector 20D, Chandigarh</address>
 </article>
 <article class="card centre-card">
-<h4>Meskhenet Healthcare Pvt Ltd</h4>
+<h4>Motherhood Chaitanya Clinics</h4>
+<address>SCO 138–140, second floor, Sector 43B, Chandigarh</address>
 </article>
 <article class="card centre-card">
-<h4>NOVA IVI FERTILITY</h4>
+<h4>Nova IVF Fertility</h4>
+<address>SCO 193–195, Sector 34A, Chandigarh 160022</address>
 </article>
 </div>
 </section>
@@ -173,7 +187,8 @@ nav{display:block;text-align:center}
 <h3 id="ivf-doraha-title">Doraha</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Bhangoo IVF Center</h4>
+<h4>Bhangoo Fertility &amp; Test Tube Baby Centre</h4>
+<address>Railway Road, opposite HDFC Bank, Doraha, Punjab</address>
 </article>
 </div>
 </section>
@@ -181,7 +196,8 @@ nav{display:block;text-align:center}
 <h3 id="ivf-faridkot-title">Faridkot</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Madhu Nursing home</h4>
+<h4>Madhu Nursing Home</h4>
+<address>Street 4, Bhan Singh Colony, Ferozepur Road, Faridkot, Punjab 151203</address>
 </article>
 </div>
 </section>
@@ -189,7 +205,8 @@ nav{display:block;text-align:center}
 <h3 id="ivf-hisar-title">Hisar</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>NOVA IVI FERTILITY</h4>
+<h4>Nova IVF Fertility</h4>
+<address>120, Het Ram Park, opposite Jat College, Hisar, Haryana 125001</address>
 </article>
 </div>
 </section>
@@ -197,85 +214,113 @@ nav{display:block;text-align:center}
 <h3 id="ivf-jalandhar-title">Jalandhar</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Aarman Hospital</h4>
+<h4>Aarti Fertility &amp; Gynae Centre</h4>
+<address>427-R, Mall Road, Model Town, Jalandhar, Punjab 144003</address>
 </article>
 <article class="card centre-card">
-<h4>Advance Fertility</h4>
+<h4>Advance Fertility Services &amp; IVF Centre</h4>
+<address>1, Hardev Nagar, Kapurthala Road, opposite Sports Complex, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
 <h4>Amarjeet Fertility Centre</h4>
+<address>21, Gujral Nagar, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
-<h4>Apex hospital</h4>
+<h4>Apex Hospital &amp; Maternity Home</h4>
+<address>520–521, New Jawahar Nagar, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
-<h4>Army hospital</h4>
-</article>
-<article class="card centre-card">
-<h4>Arti fertility &amp; Gynae center</h4>
-</article>
-<article class="card centre-card">
-<h4>Chabbra Hospital &amp; Maternity Home</h4>
+<h4>Armaan Hospital</h4>
+<address>188, Adarsh Nagar, Jalandhar, Punjab 144002</address>
 </article>
 <article class="card centre-card">
 <h4>Chawla Nursing Home &amp; Maternity Centre</h4>
+<address>9, Lajpat Nagar, Link Road, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
-<h4>Dr Ritu Nanda</h4>
+<h4>Chhabra Hospital &amp; Maternity Home</h4>
+<address>22, Gujral Nagar, near TV Station, Jalandhar, Punjab 144001</address>
+</article>
+<article class="card centre-card">
+<h4>Dr. Ritu J. Nanda Gynae &amp; Fertility Centre</h4>
+<address>10-A, Defence Colony, Cantt Road, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
 <h4>Genesis Fertility &amp; Surgical Centre</h4>
+<address>607-L, Mall Road, Model Town, Jalandhar, Punjab 144003</address>
 </article>
 <article class="card centre-card">
-<h4>indira ivf center</h4>
+<h4>Indira IVF</h4>
+<address>76, Vijay Nagar, near Football Chowk, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>Janam fertility Center</h4>
+<h4>Janam Fertility Centre</h4>
+<address>320, Lajpat Nagar, near Nakodar Chowk, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>MANNAT SUPER SPECIALITY HOSPITAL</h4>
+<h4>Mannat Superspeciality Hospital</h4>
+<address>16, Link Road, Lajpat Nagar, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>New Hope Fertility</h4>
+<h4>Military Hospital</h4>
+<address>Nalwa Street, New S.A. Colony, Jalandhar Cantt, Punjab 144005</address>
+</article>
+<article class="card centre-card">
+<h4>New Hope Stone &amp; Fertility Clinic</h4>
+<address>SCO 99, Urban Estate Phase II, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
 <h4>New Ruby Hospital</h4>
+<address>26–27, Link Road, Lajpat Nagar, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
-<h4>NOVA IVI FERTILITY</h4>
+<h4>Nova IVF Fertility</h4>
+<address>1A, JD Tower, Cool Road, Jawahar Nagar, Jalandhar, Punjab 144006</address>
 </article>
 <article class="card centre-card">
-<h4>PARIVAAR Test Tube Baby</h4>
+<h4>Parivaar IVF Centre</h4>
+<address>70, Shaheed Udham Singh Nagar, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
 <h4>Patel Hospital</h4>
+<address>Civil Lines, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
-<h4>Pawan Hospital</h4>
+<h4>Pawan Hospital &amp; Maternity Home</h4>
+<address>18, Gujral Nagar, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>SANT JASWANT FERTILITY Center</h4>
+<h4>S.T. Hospital &amp; Infertility Centre</h4>
+<address>Mahavir Marg, TV Centre Road, near Football Chowk, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>Sarb Healcare</h4>
+<h4>Sant Jaswant Singh Fertility Services</h4>
+<address>77, Main Road, Dakoha, Jalandhar Cantt, Punjab 144023</address>
+</article>
+<article class="card centre-card">
+<h4>Sarab Healthcare</h4>
+<address>7, Dashmesh Nagar, Garha Road, near Defence Colony, Choti Baradari, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
 <h4>Shivam Fertility &amp; IVF Centre</h4>
+<address>416, Adarsh Nagar, near Kapurthala Chowk, Jalandhar, Punjab 144008</address>
 </article>
 <article class="card centre-card">
-<h4>SSN Healthcare Pvt Ltd</h4>
+<h4>SSN Health Care Pvt. Ltd.</h4>
+<address>Jalandhar, Punjab</address>
+<p class="address-status">Street address unavailable</p>
 </article>
 <article class="card centre-card">
-<h4>ST Hospital</h4>
+<h4>Star Fertility Centre</h4>
+<address>265, Lajpat Nagar, near Guru Nanak Mission Chowk, Jalandhar, Punjab 144001</address>
 </article>
 <article class="card centre-card">
-<h4>Star Fertility Center</h4>
+<h4>Vardaan Medical Center</h4>
+<address>713, Mota Singh Nagar, near Bus Stand, Jalandhar, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>Vardan Infertility &amp; Medical center</h4>
-</article>
-<article class="card centre-card">
-<h4>VIRK fertility center</h4>
+<h4>Virk Fertility Services</h4>
+<address>662, Guru Teg Bahadur Nagar, near Guru Ravidas Chowk, Jalandhar, Punjab 144003</address>
 </article>
 </div>
 </section>
@@ -283,10 +328,21 @@ nav{display:block;text-align:center}
 <h3 id="ivf-jammu-title">Jammu</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>indira ivf center</h4>
+<h4>Indira IVF</h4>
+<address>Fourth floor, Jammu’s Jewel, Jewel Chowk, Jammu, Jammu and Kashmir 180001</address>
 </article>
 <article class="card centre-card">
-<h4>JK Medicity</h4>
+<h4>JK Medicity Hospital</h4>
+<address>Narwal Bypass Road, Jammu, Jammu and Kashmir 180015</address>
+</article>
+</div>
+</section>
+<section class="centre-city" id="ivf-kharar" aria-labelledby="ivf-kharar-title">
+<h3 id="ivf-kharar-title">Kharar</h3>
+<div class="cards centre-cards">
+<article class="card centre-card">
+<h4>Aashakiran IVF</h4>
+<address>SCO 33, Gillco Valley, Sector 127, Kharar, Mohali district, Punjab 140301</address>
 </article>
 </div>
 </section>
@@ -294,25 +350,32 @@ nav{display:block;text-align:center}
 <h3 id="ivf-ludhiana-title">Ludhiana</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Dayanand Medical College</h4>
+<h4>Dayanand Medical College &amp; Hospital</h4>
+<address>Tagore Nagar, Civil Lines, Ludhiana, Punjab 141001</address>
 </article>
 <article class="card centre-card">
 <h4>Dr Sumita Sofat Infertility &amp; Women Care</h4>
+<address>9, Government College Road, near Rose Garden, Civil Lines, Ludhiana, Punjab 141001</address>
 </article>
 <article class="card centre-card">
-<h4>Eva Fertility Center</h4>
+<h4>Eva Hospital</h4>
+<address>40, Pakhowal Road, New Lajpat Nagar, Model Gram, Ludhiana, Punjab 141001</address>
 </article>
 <article class="card centre-card">
-<h4>indira ivf center</h4>
+<h4>Indira IVF</h4>
+<address>Ferozepur Road, opposite Punjab Agricultural University Gate 1, Sarabha Nagar, Ludhiana, Punjab 141001</address>
 </article>
 <article class="card centre-card">
 <h4>Iqbal Nursing Home</h4>
+<address>74, Club Road, Civil Lines, Ludhiana, Punjab 141001</address>
 </article>
 <article class="card centre-card">
 <h4>Rana Hospital</h4>
+<address>688-F, Shaheed Bhagat Singh Nagar, Pakhowal Road, Ludhiana, Punjab 141013</address>
 </article>
 <article class="card centre-card">
 <h4>Unique Fertility Centre</h4>
+<address>481, Model Town Road, Pritm Nagar, Model Town, Ludhiana, Punjab 141002</address>
 </article>
 </div>
 </section>
@@ -321,15 +384,19 @@ nav{display:block;text-align:center}
 <div class="cards centre-cards">
 <article class="card centre-card">
 <h4>Aastha Hospital</h4>
+<address>Dutt Road, Moga, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>GOMTI THAPAR</h4>
+<h4>Gomti Thapar Hospital</h4>
+<address>G.T. Road, opposite New Grain Market, Guru Ram Dass Nagar, Moga, Punjab 142001</address>
 </article>
 <article class="card centre-card">
-<h4>RAJEEV HOSPITAL</h4>
+<h4>Rajeev Hospital</h4>
+<address>Ferozepur Road, near Truck Union, Moga, Punjab 142001</address>
 </article>
 <article class="card centre-card">
 <h4>Rajindra Hospital</h4>
+<address>Akalsar Road, Sardar Nagar, Moga, Punjab 142001</address>
 </article>
 </div>
 </section>
@@ -337,16 +404,16 @@ nav{display:block;text-align:center}
 <h3 id="ivf-mohali-title">Mohali</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Aashakiran fertility Center</h4>
+<h4>Dr. Sodhi’s Health Care</h4>
+<address>1524, Sector 69, Mohali, Punjab 160062</address>
 </article>
 <article class="card centre-card">
-<h4>FOURTIS</h4>
+<h4>Fortis Hospital</h4>
+<address>Sector 62, Phase VIII, Mohali, Punjab 160062</address>
 </article>
 <article class="card centre-card">
-<h4>RJ Care Hospital</h4>
-</article>
-<article class="card centre-card">
-<h4>Sodhi Nursing Home</h4>
+<h4>The Touch Clinic (RJ Care Centre)</h4>
+<address>A5–A8, ground floor, Bestech Business Tower, Sector 66, Mohali, Punjab</address>
 </article>
 </div>
 </section>
@@ -355,6 +422,7 @@ nav{display:block;text-align:center}
 <div class="cards centre-cards">
 <article class="card centre-card">
 <h4>Navchetan Hospital</h4>
+<address>Saili Road, behind LIC Building, near Truck Union, Pathankot, Punjab</address>
 </article>
 </div>
 </section>
@@ -362,19 +430,24 @@ nav{display:block;text-align:center}
 <h3 id="ivf-patiala-title">Patiala</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Mannat IVF Center</h4>
+<h4>Mannat IVF Centre</h4>
+<address>Amar Hospital, 8, Income Tax Office Road, Bank Colony, Patiala, Punjab</address>
 </article>
 <article class="card centre-card">
 <h4>Medlink Hospital</h4>
+<address>Main Road, Gurbax Colony, Patiala, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>Nitin Hospital</h4>
+<h4>Nitin Hospital &amp; IVF Centre</h4>
+<address>SCO 45–47, New Leela Bhawan Market, Patiala, Punjab</address>
 </article>
 <article class="card centre-card">
-<h4>SADBHAVANA HOSPITAL</h4>
+<h4>Sadbhavna Medical &amp; Heart Institute</h4>
+<address>Opposite State College of Education, Charan Bagh, Patiala, Punjab 147001</address>
 </article>
 <article class="card centre-card">
-<h4>Sri Ivf center</h4>
+<h4>SRI IVF</h4>
+<address>Second floor, Sehat Medicare, 49, Yadavindra Colony, Patiala, Punjab</address>
 </article>
 </div>
 </section>
@@ -383,6 +456,7 @@ nav{display:block;text-align:center}
 <div class="cards centre-cards">
 <article class="card centre-card">
 <h4>Neelam Hospital</h4>
+<address>Rajpura–Chandigarh Highway, opposite Chitkara University, Fatehpur Garhi, Rajpura, Punjab 140101</address>
 </article>
 </div>
 </section>
@@ -390,7 +464,8 @@ nav{display:block;text-align:center}
 <h3 id="ivf-samana-title">Samana</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Aarora Hospital</h4>
+<h4>Arora Hospital</h4>
+<address>Tehsil Road, Samana, Patiala district, Punjab 147101</address>
 </article>
 </div>
 </section>
@@ -398,7 +473,8 @@ nav{display:block;text-align:center}
 <h3 id="ivf-sangrur-title">Sangrur</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Manesh Healthcare Pvt Ltd</h4>
+<h4>Manesh Healthcare &amp; Research Pvt. Ltd.</h4>
+<address>Lane 3, Punia Colony, Dhuri Road, Sangrur, Punjab 148001</address>
 </article>
 </div>
 </section>
@@ -406,10 +482,12 @@ nav{display:block;text-align:center}
 <h3 id="ivf-sirsa-title">Sirsa</h3>
 <div class="cards centre-cards">
 <article class="card centre-card">
-<h4>Holy Nursng home</h4>
+<h4>Holy Nursing Home</h4>
+<address>Dabwali Road, near Sangwan Chowk, Sirsa, Haryana</address>
 </article>
 <article class="card centre-card">
 <h4>Khurana Hospital</h4>
+<address>Dabwali Road, opposite Sirsa Club, Sirsa, Haryana 125055</address>
 </article>
 </div>
 </section>
