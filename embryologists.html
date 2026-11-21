@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Embryologists | FertiBridge</title>
-<meta name="description" content="Explore approved embryologist profiles on FertiBridge. Search by name, clinic or city.">
+<meta name="description" content="Explore the FertiBridge embryologist directory. Search by name, clinic or city.">
 <link rel="icon" href="favicon.png">
 <style>
 :root{--teal:#087d79;--ink:#183b3e;--muted:#5b7174;--bg:#f6fbfa;--line:#d5e8e4;--soft:#e7f6f3}
@@ -21,14 +21,12 @@ main{max-width:1120px;margin:0 auto;padding:35px 20px 64px}.eyebrow{color:var(--
 <main>
 <div class="eyebrow">FertiBridge Specialist Network</div>
 <h1>Embryologists</h1>
-<p class="intro">Explore embryology professionals whose profiles have been approved for listing on FertiBridge. Meet our listed embryology professionals. Newly approved embryologists are added automatically.</p>
+<p class="intro">Browse the embryologist directory. Search by name, or use the city filter for profiles with a listed location.</p>
 <div class="toolbar" role="search"><div><label for="search">Search embryologists</label><input id="search" type="search" placeholder="Name, clinic, or city" autocomplete="off"></div><div><label for="city">City</label><select id="city"><option value="">All cities</option></select></div></div>
-<p id="status" role="status" aria-live="polite">Loading approved embryologist profiles…</p><div class="cards" id="cards" aria-live="polite"></div>
+<p id="status" role="status" aria-live="polite">Loading embryologist directory…</p><div class="cards" id="cards" aria-live="polite"></div>
 <p class="disclaimer">Profile approval indicates acceptance for listing, not independent endorsement or verification of treatment outcomes. Embryologists are laboratory professionals; not all provide medical consultations. Please confirm the appropriate service and availability before making an appointment request. Private contact information and submitted documents are not displayed.</p>
 </main><footer>© FertiBridge · Connecting patients with fertility specialists</footer>
 <script type="module">
-import {createClient} from 'https://esm.sh/@supabase/supabase-js@2';
-const sb=createClient('https://adenmztahinielcocylk.supabase.co','sb_publishable_18hrEb93-JmZuX_tccS5Mw_QTE8Ciiz');
 const $=id=>document.getElementById(id), cards=$('cards'), status=$('status'), search=$('search'), city=$('city');
 // Existing manually listed profile is retained alongside newly approved Supabase profiles.
 const existingProfiles=[{
@@ -37,18 +35,76 @@ const existingProfiles=[{
  email:'kaur.embryologist@gmail.com',instagram:'https://www.instagram.com/kaur__embryologist/',
  photo:'simran-kaur-embryologist.jpeg',existing:true
 }];
-let profiles=[...existingProfiles];
+const directoryNames = [
+  "Achal Tiwari",
+  "Alka",
+  "Aman",
+  "Amandeep",
+  "Anju",
+  "Bharti",
+  "Chandan",
+  "Dehar",
+  "Ganandeep",
+  "Gopal",
+  "Harjeet",
+  "Harnoor",
+  "Inderpreet",
+  "Latika",
+  "Lavnya",
+  "Manjot",
+  "Meenu",
+  "Pawan",
+  "Priyanka",
+  "Rahul",
+  "Rajat",
+  "Rajeev",
+  "Ramdyal",
+  "Ramnayan",
+  "Sameer",
+  "Sarbjit",
+  "Shashi Kumar",
+  "Shushma",
+  "Shweta",
+  "Sidharth Jaitly",
+  "Simi",
+  "Somnath",
+  "Sourab",
+  "Subash",
+  "Sudha",
+  "Sughandha",
+  "Sumithu",
+  "Surjit Bhatia",
+  "Sushil",
+  "Swati",
+  "Toni",
+  "Tyana",
+  "Vijay Kumar"
+];
+const directoryProfiles = directoryNames.map(doctor_name => ({doctor_name, nameOnly: true}));
+const nameKey = name => String(name || '').trim().replace(/^(?:dr|mr|ms|emb)\.?\s+/i, '').replace(/\s+/g, ' ').toLowerCase();
+let profiles = [...existingProfiles, ...directoryProfiles];
 const make=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=String(txt);return e};
 function line(parent,label,value){if(value===null||value===undefined||String(value).trim()==='')return;const p=make('p');p.append(make('strong','',label+': '),document.createTextNode(String(value)));parent.append(p)}
 function safeLink(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null}catch{return null}}
 function render(){const term=search.value.trim().toLocaleLowerCase();const found=profiles.filter(a=>(!city.value||a.city===city.value)&&(!term||[a.doctor_name,a.specialty,a.city,a.state,a.clinic_name,a.qualifications,a.services].some(x=>String(x||'').toLocaleLowerCase().includes(term))));cards.replaceChildren();status.className='';status.textContent=`${found.length} embryologist profile${found.length===1?'':'s'} found`;
 if(!found.length){const empty=make('div','empty',profiles.length?'No profiles match your search. Try a different city or name.':'No embryologist profiles are available yet.');cards.append(empty);return}
-for(const a of found){const card=make('article','card');if(a.photo){const photo=make('img','profile-photo');photo.src=a.photo;photo.alt=a.doctor_name+' — '+(a.specialty||'Embryologist');photo.loading='lazy';photo.onerror=()=>photo.remove();card.append(photo)}card.append(make('span','tag',a.specialty||'Embryologist'),make('h2','',a.doctor_name),make('p','place',[a.city,a.state].filter(Boolean).join(', ')));const details=make('div','details');line(details,'Qualification',a.qualifications);if(a.experience_years!==null&&a.experience_years!==undefined)line(details,'Experience',a.experience_years+' years');line(details,'Clinic / Lab',a.clinic_name);line(details,'Expertise',a.services);line(details,'About',a.professional_bio);card.append(details);const actions=make('div','actions');const appointment=make('a','btn','Request Appointment');appointment.href='appointment.html';actions.append(appointment);if(a.email){const mail=make('a','btn secondary','Email');mail.href='mailto:'+encodeURIComponent(a.email);actions.append(mail)}for(const [label,url] of [['Website',a.website],['Instagram',a.instagram]]){const href=safeLink(url);if(!href)continue;const aLink=make('a','btn secondary',label);aLink.href=href;aLink.target='_blank';aLink.rel='noopener noreferrer';actions.append(aLink)}card.append(actions);cards.append(card)}
+for(const a of found){const card=make('article','card');
+  if(a.nameOnly){
+    card.append(make('h2','',a.doctor_name));
+    cards.append(card);
+    continue;
+  }
+  if(a.photo){const photo=make('img','profile-photo');photo.src=a.photo;photo.alt=a.doctor_name+' — '+(a.specialty||'Embryologist');photo.loading='lazy';photo.onerror=()=>photo.remove();card.append(photo)}card.append(make('span','tag',a.specialty||'Embryologist'),make('h2','',a.doctor_name),make('p','place',[a.city,a.state].filter(Boolean).join(', ')));const details=make('div','details');line(details,'Qualification',a.qualifications);if(a.experience_years!==null&&a.experience_years!==undefined)line(details,'Experience',a.experience_years+' years');line(details,'Clinic / Lab',a.clinic_name);line(details,'Expertise',a.services);line(details,'About',a.professional_bio);card.append(details);const actions=make('div','actions');const appointment=make('a','btn','Request Appointment');appointment.href='appointment.html';actions.append(appointment);if(a.email){const mail=make('a','btn secondary','Email');mail.href='mailto:'+encodeURIComponent(a.email);actions.append(mail)}for(const [label,url] of [['Website',a.website],['Instagram',a.instagram]]){const href=safeLink(url);if(!href)continue;const aLink=make('a','btn secondary',label);aLink.href=href;aLink.target='_blank';aLink.rel='noopener noreferrer';actions.append(aLink)}card.append(actions);cards.append(card)}
 }
 search.addEventListener('input',render);city.addEventListener('change',render);render();
 try{
+const {createClient}=await import('https://esm.sh/@supabase/supabase-js@2');
+const sb=createClient('https://adenmztahinielcocylk.supabase.co','sb_publishable_18hrEb93-JmZuX_tccS5Mw_QTE8Ciiz');
 const {data,error}=await sb.from('fertibridge_public_doctors').select('doctor_name,specialty,qualifications,experience_years,clinic_name,city,state,website,instagram,professional_bio,services').ilike('specialty','%embryolog%').order('published_at',{ascending:false}).limit(300);
-if(error)throw error;const dynamic=data||[];const names=new Set(dynamic.map(x=>String(x.doctor_name||'').trim().toLocaleLowerCase()));profiles=[...existingProfiles.filter(x=>!names.has(x.doctor_name.toLocaleLowerCase())),...dynamic];for(const name of [...new Set(profiles.map(x=>x.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b))){const o=make('option','',name);o.value=name;city.append(o)}render();
-}catch(e){console.error('Could not load approved embryologists',e);status.className='error';status.textContent='Live profiles could not be refreshed. Existing listed profiles are still shown.'}
+if(error)throw error;const dynamic=data||[];const approvedNames = new Set(dynamic.map(x => nameKey(x.doctor_name)));
+const manualProfiles = existingProfiles.filter(x => !approvedNames.has(nameKey(x.doctor_name)));
+const fullProfileNames = new Set([...manualProfiles, ...dynamic].map(x => nameKey(x.doctor_name)));
+profiles = [...manualProfiles, ...dynamic, ...directoryProfiles.filter(x => !fullProfileNames.has(nameKey(x.doctor_name)))];for(const name of [...new Set(profiles.map(x=>x.city).filter(Boolean))].sort((a,b)=>a.localeCompare(b))){const o=make('option','',name);o.value=name;city.append(o)}render();
+}catch(e){console.error('Could not load approved embryologists',e);status.className='error';status.textContent='Live profiles could not be refreshed. The directory names are still available.'}
 </script>
 </body></html>
